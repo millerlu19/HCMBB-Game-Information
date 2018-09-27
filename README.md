@@ -1,4 +1,4 @@
-# King-s-Cup
+# Kings-Cup
 This android application will be a mobile version of the popular party game "King's Cup". Instead of going to the store to buy a deck of 
   cards, this free application can be downloaded to your cell phone in seconds and resembles the basic functionality of game.
 
