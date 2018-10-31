@@ -1,6 +1,7 @@
 # HanoverGame.py
 
 from bs4 import BeautifulSoup
+
 class HanoverGame:
 
     def __init__(self, page):
