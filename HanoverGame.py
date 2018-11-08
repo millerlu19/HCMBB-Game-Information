@@ -42,10 +42,13 @@ class HanoverGame:
             return OpponentAwayTotal
 
     def setDate(self):
-        return None
+        date = list(soup.find(class_='head').children)[1].prettify()
+        get_date_list = date.split()[5:8]
+        game_date_string = " ".join(get_date_list)
+        return game_date_string
 
     def getLocation(self):
-        return None
+        return self.location
 
     def getOpponent(self):
         return self.opponent
