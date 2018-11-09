@@ -17,7 +17,35 @@ class HanoverGame:
         return None
 
     def setOpponent(self):
-        return None
+        soup = BeautifulSoup(self.page.text, 'html.parser')
+        Opponent_Name = list(soup.find(class_='head').children)[1].prettify()
+        Opponent_Name = Opponent_Name.split()
+        if Opponent_Name[1] == "Hanover":
+            if len(Opponent_Name[3]) < 4:
+                Opponent_Name_List = Opponent_Name[3:6]
+                Opponent_Name_String = " ".join(Opponent_Name_List)
+                return Opponent_Name_String
+            elif len(Opponent_Name[3]) == 4:
+                Opponent_Name_List = Opponent_Name[3:5]
+                Opponent_Name_String = " ".join(Opponent_Name_List)
+                return Opponent_Name_String
+            else:
+                Opponent_Name_List = Opponent_Name[3]
+                Opponent_Name_String = " ".join(Opponent_Name_List)
+                return Opponent_Name_String
+        else:
+            if len(Opponent_Name[1]) <= 4:
+                Opponent_Name_List = Opponent_Name[1:4]
+                Opponent_Name_String = " ".join(Opponent_Name_List)
+                return Opponent_Name_String
+            elif len(Opponent_Name[3]) == 4:
+                Opponent_Name_List = Opponent_Name[1:3]
+                Opponent_Name_String = " ".join(Opponent_Name_List)
+                return Opponent_Name_String
+            else:
+                Opponent_Name_List = Opponent_Name[1]
+                Opponent_Name_String = " ".join(Opponent_Name_List)
+                return Opponent_Name_String
 
     def setHanoverScore(self):
         soup = BeautifulSoup(self.page.text, 'html.parser')
@@ -43,8 +71,8 @@ class HanoverGame:
 
     def setDate(self):
         date = list(soup.find(class_='head').children)[1].prettify()
-        get_date_list = date.split()[5:8]
-        game_date_string = " ".join(get_date_list)
+        game_date_list = date.split()[5:8]
+        game_date_string = " ".join(game_date_list)
         return game_date_string
 
     def getLocation(self):
