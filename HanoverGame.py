@@ -13,18 +13,27 @@ class HanoverGame:
         self.date = setDate()
 
     def setLocation(self):
-        # get location info from self.page
-        return None
+        soup = BeautifulSoup(self.page.text, 'html.parser')
+        Game_Info = soup.find(class_='game-info')
+        Game_Info_List = list(Game_Info.children)[1].prettify().split()
+        Game_Location_List = Game_Info_List[40:42]
+        Game_Location = " ".join(Game_Location_List)
+        return Game_Location
 
     def setOpponent(self):
         soup = BeautifulSoup(self.page.text, 'html.parser')
         Opponent_Name = list(soup.find(class_='head').children)[1].prettify()
         Opponent_Name = Opponent_Name.split()
         if Opponent_Name[1] == "Hanover":
-            if len(Opponent_Name[3]) < 4:
-                Opponent_Name_List = Opponent_Name[3:6]
-                Opponent_Name_String = " ".join(Opponent_Name_List)
-                return Opponent_Name_String
+            if len(Opponent_Name[3]) < 4 or Opponent_Name[3] == "Kent":
+                if Opponent_Name[5] == "-":
+                    Opponent_Name_List = Opponent_Name[3:7]
+                    Opponent_Name_String = " ".join(Opponent_Name_List)
+                    return Opponent_Name_String
+                else:
+                    Opponent_Name_List = Opponent_Name[3:6]
+                    Opponent_Name_String = " ".join(Opponent_Name_List)
+                    return Opponent_Name_String
             elif len(Opponent_Name[3]) == 4:
                 Opponent_Name_List = Opponent_Name[3:5]
                 Opponent_Name_String = " ".join(Opponent_Name_List)
@@ -34,10 +43,15 @@ class HanoverGame:
                 Opponent_Name_String = " ".join(Opponent_Name_List)
                 return Opponent_Name_String
         else:
-            if len(Opponent_Name[1]) <= 4:
-                Opponent_Name_List = Opponent_Name[1:4]
-                Opponent_Name_String = " ".join(Opponent_Name_List)
-                return Opponent_Name_String
+            if len(Opponent_Name[1]) < 4 or Opponent_Name[1] == "Kent":
+                if Opponent_Name[3] == "-":
+                    Opponent_Name_List = Opponent_Name[1:5]
+                    Opponent_Name_String = " ".join(Opponent_Name_List)
+                    return Opponent_Name_String
+                else:
+                    Opponent_Name_List = Opponent_Name[1:4]
+                    Opponent_Name_String = " ".join(Opponent_Name_List)
+                    return Opponent_Name_String
             elif len(Opponent_Name[3]) == 4:
                 Opponent_Name_List = Opponent_Name[1:3]
                 Opponent_Name_String = " ".join(Opponent_Name_List)
