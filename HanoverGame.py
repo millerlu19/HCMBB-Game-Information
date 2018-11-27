@@ -39,8 +39,7 @@ class HanoverGame:
                 Opponent_Name_String = " ".join(Opponent_Name_List)
                 return Opponent_Name_String
             else:
-                Opponent_Name_List = Opponent_Name[3]
-                Opponent_Name_String = " ".join(Opponent_Name_List)
+                Opponent_Name_String = Opponent_Name[3]
                 return Opponent_Name_String
         else:
             if len(Opponent_Name[1]) < 4 or Opponent_Name[1] == "Kent":
@@ -57,8 +56,7 @@ class HanoverGame:
                 Opponent_Name_String = " ".join(Opponent_Name_List)
                 return Opponent_Name_String
             else:
-                Opponent_Name_List = Opponent_Name[1]
-                Opponent_Name_String = " ".join(Opponent_Name_List)
+                Opponent_Name_String = Opponent_Name[1]
                 return Opponent_Name_String
 
     def setHanoverScore(self):
