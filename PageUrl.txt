@@ -102,3 +102,12 @@ requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/201
 
 # Wooster
 requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20181120_kqln.xml')
+
+# Ohio Wesleyan
+requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20181128_al6r.xml')
+
+# Franklin
+requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20181201_8bc1.xml')
+
+# Transylvania
+requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20181205_xskl.xml')
