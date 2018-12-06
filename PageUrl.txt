@@ -18,16 +18,16 @@ requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/201
 requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171129_5u6z.xml')
 
 # Franklin Away
-requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171202_uidy.xml?view=boxscore')
+requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171202_uidy.xml')
 
 # Transy Away
-requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171206_01gr.xml?view=boxscore')
+requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171206_01gr.xml')
 
 # Bluffton Home
-requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171209_lytk.xml?view=boxscore')
+requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171209_lytk.xml')
 
 # Defiance Away
-requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171216_mrxa.xml?view=boxscore')
+requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171216_mrxa.xml')
 
 # Marietta
 requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171229_3e67.xml')
@@ -36,19 +36,19 @@ requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/201
 requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171230_hohs.xml')
 
 # Rose-Hulman Home
-requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180103_eo0h.xml?view=boxscore')
+requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180103_eo0h.xml')
 
 # Manchester Away
-requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180106_90o3.xml?view=boxscore')
+requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180106_90o3.xml')
 
 # Earlham Home
-requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180110_4h64.xml?view=boxscore')
+requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180110_4h64.xml')
 
 # Anderson Away
-requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180113_anw0.xml?view=boxscore')
+requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180113_anw0.xml')
 
 # Mt. St. Joseph Away
-requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180117_83jv.xml?view=boxscore')
+requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180117_83jv.xml')
 
 # Franklin Home
 requests.get('https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180120_g0e4.xml')
