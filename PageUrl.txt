@@ -111,3 +111,22 @@ requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/201
 
 # Transylvania
 requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20181205_xskl.xml')
+
+# Bluffton
+requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20181208_4ld0.xml')
+
+# Defiance
+requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20181215_avgd.xml')
+
+# Whittier
+requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20181218_yyag.xml')
+
+# Caltech
+requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20181219_soum.xml')
+
+# Rose-Hulman
+requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190102_qpwt.xml')
+
+# Manchester
+requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190105_ztzo.xml')
+
