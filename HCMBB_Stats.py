@@ -18,5 +18,6 @@ def main():
     game_pages = []
     for url in game_urls:
         game_pages.append(HanoverGame(get_game_page(url)))
+    print(HanoverGame.__init__)
 
 main()
