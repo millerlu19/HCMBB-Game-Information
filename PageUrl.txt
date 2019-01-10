@@ -130,3 +130,6 @@ requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/201
 # Manchester
 requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190105_ztzo.xml')
 
+# Earlham
+requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190109_fh41.xml')
+
