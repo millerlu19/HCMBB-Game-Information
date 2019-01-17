@@ -133,3 +133,9 @@ requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/201
 # Earlham
 requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190109_fh41.xml')
 
+# Anderson
+requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190112_t4gs.xml')
+
+# Mt. St. Joseph
+requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190116_p3v7.xml')
+
