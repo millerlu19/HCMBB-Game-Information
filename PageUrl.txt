@@ -139,3 +139,12 @@ requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/201
 # Mt. St. Joseph
 requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190116_p3v7.xml')
 
+# Franklin
+requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190119_y7wo.xml')
+
+# Transylvania
+requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190123_9hfd.xml')
+
+# Bluffton
+requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190126_owid.xml')
+
