@@ -19,7 +19,7 @@ def get_game_page(url):
 # main()
 # Creates a long list of the box score urls for each game played
 # Create a HanoverGame object for each game page url
-    #
+    # dictionary -> key: tuple (opponent, month & day, year), value: HanoverGame object
 def main():
     game_urls = get_game_urls()
     print(game_urls)
