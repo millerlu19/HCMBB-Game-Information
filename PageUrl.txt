@@ -148,3 +148,10 @@ requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/201
 # Bluffton
 requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190126_owid.xml')
 
+# Rose-Hulman
+requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190130_rt6s.xml')
+
+# Anderson
+requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190202_165s.xml')
+
+#
