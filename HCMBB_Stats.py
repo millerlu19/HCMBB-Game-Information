@@ -5,30 +5,41 @@ from bs4 import BeautifulSoup
 #import HanoverGame.py
 
 # helper function to read all of the urls from PageUrl.txt
-def get_game_urls():
+def get_urls_list():
+#MAKE SURE TO FIX UP TEXT FILE BEFORE TESTING THIS FUNCTION AGAIN
     """
     Returns a list of all the urls of each Hanover games' box scores.
     Two separate Lists for the 2017-2018 season and the 2018-2019 season.
     """
     PageUrls = open('PageUrl.txt', 'r')
     Txt_File_List = PageUrls.readlines()
-    #Urls_List = []
-    #for url in Txt_File_List:
-    #    url = url.rstrip()
-    #    if not url.startswith('#'):
-    #        Urls_List.append(url)
-
-    #Urls_List_18 = Urls_List[:30]
-    #Urls_List_19 = Urls_List[31:]
-
-    Urls_Dict = {}
+    Urls_List = []
     for url in Txt_File_List:
-        k, v = url.strip().split('=')
-        Urls_Dict[k.strip()] = v.strip()
+        url = url.rstrip()
+        if not url.startswith('#'):
+            Urls_List.append(url)
+
+    Urls_List_18 = Urls_List[:30]
+    Urls_List_19 = Urls_List[31:]
 
     PageUrls.close()
 
-    #return Urls_List_18, Urls_List_19
+    return Urls_List_18, Urls_List_19
+
+def get_urls_dict():
+    """
+    Returns a list of all the urls of each Hanover games' box scores.
+    Two separate Lists for the 2017-2018 season and the 2018-2019 season.
+    """
+    PageUrls = open('PageUrl.txt', 'r')
+
+    Urls_Dict = {}
+    for line in PageUrls:
+        opp, link = line.strip().split(' = ')
+        Urls_Dict[opp.strip()] = link.strip()
+
+    PageUrls.close()
+
     return Urls_Dict
 
 # helper function that takes the url and opens the page through a get request and returns the page
@@ -47,12 +58,12 @@ def create_game_objects():
 # Create a HanoverGame object for each game page url
     # dictionary -> key: tuple (opponent, month & day, year), value: HanoverGame object
 def main():
-    #Game_Urls_2018 = get_game_urls()[0]
-    #print(Game_Urls_2018)
-    #Game_Urls_2019 = get_game_urls()[1]
-    #print(Game_Urls_2019)
+    #Urls_List_2018 = get_urls_list()[0]
+    #print(Urls_List_2018)
+    #Urls_List_2019 = get_urls_list()[1]
+    #print(Urls_List_2019)
 
-    Game_Urls = get_game_urls()
-    print(Game_Urls)
+    Urls_Dict = get_urls_dict()
+    print(Urls_Dict)
 
 main()
