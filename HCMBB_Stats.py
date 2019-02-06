@@ -19,8 +19,8 @@ def get_urls_list():
         if not url.startswith('#'):
             Urls_List.append(url)
 
-    Urls_List_18 = Urls_List[:30]
-    Urls_List_19 = Urls_List[31:]
+    Urls_List_18 = Urls_List[:32]
+    Urls_List_19 = Urls_List[33:]
 
     PageUrls.close()
 
@@ -35,8 +35,8 @@ def get_urls_dict():
 
     Urls_Dict = {}
     for line in PageUrls:
-        opp, link = line.strip().split(' = ')
-        Urls_Dict[opp.strip()] = link.strip()
+        opp, link = line.split(' = ')
+        Urls_Dict = {opp: link}
 
     PageUrls.close()
 
@@ -58,12 +58,12 @@ def create_game_objects():
 # Create a HanoverGame object for each game page url
     # dictionary -> key: tuple (opponent, month & day, year), value: HanoverGame object
 def main():
-    #Urls_List_2018 = get_urls_list()[0]
-    #print(Urls_List_2018)
-    #Urls_List_2019 = get_urls_list()[1]
-    #print(Urls_List_2019)
+    Urls_List_2018 = get_urls_list()[0]
+    print(Urls_List_2018)
+    Urls_List_2019 = get_urls_list()[1]
+    print(Urls_List_2019)
 
-    Urls_Dict = get_urls_dict()
-    print(Urls_Dict)
+    #Urls_Dict = get_urls_dict()
+    #print(Urls_Dict)
 
 main()
