@@ -6,7 +6,10 @@ from bs4 import BeautifulSoup
 
 # helper function to read all of the urls from PageUrl.txt
 def get_game_urls():
-    """Returns a list of all the urls of each Hanover games' box scores."""
+    """
+    Returns a list of all the urls of each Hanover games' box scores.
+    Two separate Lists for the 2017-2018 season and the 2018-2019 season.
+    """
     PageUrls = open('PageUrl.txt', 'r')
     Txt_File_List = PageUrls.readlines()
     Urls_List = []
