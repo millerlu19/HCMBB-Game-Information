@@ -2,16 +2,23 @@
 
 import requests
 from bs4 import BeautifulSoup
-import HanoverGame.py
+#import HanoverGame.py
 
 # helper function to read all of the urls from PageUrl.txt
 def get_game_urls():
     """Returns a list of all the urls of each Hanover games' box scores."""
     PageUrls = open('PageUrl.txt', 'r')
-    game_pages = []
-    for url in game_urls:
-        game_pages.append(HanoverGame(get_game_page(url)))
-    return game_pages
+    Txt_File_List = PageUrls.readlines()
+    Urls_List = []
+    for url in Txt_File_List:
+        url = url.rstrip()
+        if not url.startswith('#'):
+            Urls_List.append(url)
+
+    Urls_List_18 = Urls_List[:30]
+    Urls_List_19 = Urls_List[31:]
+
+    return Urls_List_18, Urls_List_19
 
 # helper function that takes the url and opens the page through a get request and returns the page
 def get_game_page(url):
@@ -23,7 +30,6 @@ def get_game_page(url):
 # Create a HanoverGame object for each game page url
     # dictionary -> key: tuple (opponent, month & day, year), value: HanoverGame object
 def main():
-    game_urls = get_game_urls()
-    print(game_urls)
+    print(get_game_urls())
 
 main()
