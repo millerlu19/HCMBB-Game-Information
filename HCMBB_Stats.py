@@ -21,6 +21,8 @@ def get_game_urls():
     Urls_List_18 = Urls_List[:30]
     Urls_List_19 = Urls_List[31:]
 
+    PageUrls.close()
+
     return Urls_List_18, Urls_List_19
 
 # helper function that takes the url and opens the page through a get request and returns the page
