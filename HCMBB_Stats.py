@@ -28,6 +28,7 @@ def get_game_urls():
 # helper function that takes the url and opens the page through a get request and returns the page
 def get_game_page(url):
     """Returns the info of the selected game's box score page from Hanover Presto Sports."""
+
     return game_pages[url]
 
 # main()
@@ -35,6 +36,9 @@ def get_game_page(url):
 # Create a HanoverGame object for each game page url
     # dictionary -> key: tuple (opponent, month & day, year), value: HanoverGame object
 def main():
-    print(get_game_urls())
+    Game_URLs_2018 = get_game_urls()[0]
+    print(Game_URLs_2018)
+    Game_URLs_2019 = get_game_urls()[1]
+    print(Game_URLs_2019)
 
 main()
