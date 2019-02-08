@@ -14,24 +14,24 @@ def get_game_url_dict():
     """
     PageUrls = open('PageUrl.txt', 'r')
 
-    Game_Url_Dict = {}
     Game_Urls_2018 = {}
     Game_Urls_2019 = {}
+
     for line in PageUrls:
         line = line.strip()
         if not line.startswith('#') and not len(line) == 0:
             opp, link = line.split(' = ')
             date = link.split('/')[-1].split('_')[0]
             opponent = (opp, date)
-            Game_Url_Dict[opponent] = link
-
-    #Game_Urls_2018 = Game_Url_Dict[:31]
-    #Game_Urls_2019 = Game_Url_Dict[31:]
+            date_int = int(date)
+            if date_int <= 20180302:
+                Game_Urls_2018[opponent] = link
+            else:
+                Game_Urls_2019[opponent] = link
 
     PageUrls.close()
 
-    return Game_Url_Dict
-    #return Game_Urls_2018, Game_Urls_2019
+    return Game_Urls_2018, Game_Urls_2019
 
 # helper function that takes the url and opens the page through a get request and returns the page
 def get_game_page():
@@ -49,7 +49,9 @@ def create_game_objects():
 # Create a HanoverGame object for each game page url
     # dictionary -> key: tuple (opponent, month & day, year), value: HanoverGame object
 def main():
-    Game_Url_Dict = get_game_url_dict()
-    print(Game_Url_Dict)
+    Game_Urls_2018 = get_game_url_dict()[0]
+    print(Game_Urls_2018)
+    Game_Urls_2019 = get_game_url_dict()[1]
+    print(Game_Urls_2019)
 
 main()
