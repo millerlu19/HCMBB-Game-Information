@@ -48,7 +48,7 @@ def get_game_page(game_urls_2019, game_urls_2018):
         for key, val in game_urls_2019.items():
             if opp_input == key[0]:
                 filtered_dict[key] = val
-        if filtered_dict is None:
+        if len(filtered_dict) == 0:
             print("Hanover did not play this team in this season. Please try again.")
             get_game_page(game_urls_2019, game_urls_2018)
         elif len(filtered_dict) == 1:
@@ -60,7 +60,7 @@ def get_game_page(game_urls_2019, game_urls_2018):
         for key, val in game_urls_2018.items():
             if opp_input == key[0]:
                 filtered_dict[key] = val
-        if filtered_dict is None:
+        if len(filtered_dict) == 0:
             print("Hanover did not play this team in this season. Please try again.")
             get_game_page(game_urls_2019, game_urls_2018)
         elif len(filtered_dict) == 1:
