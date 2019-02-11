@@ -38,42 +38,54 @@ def get_game_url_dict():
 
 
 # helper function that takes the url and opens the page through a get request and returns the page
-def get_game_page(game_urls_2019, game_urls_2018):
+def get_game_page(game_urls_2018, game_urls_2019):
     """Returns the specific game url for the game that is being selected."""
 
-    filtered_dict = {}
     szn_input = input("Which Hanover Men's Basketball season would you like to view? (2019 or 2018) ")
-    if szn_input == "2019":
-        opp_input = input("Which game in this season would you like to view? (enter opponent) ")
-        for key, val in game_urls_2019.items():
-            if opp_input == key[0]:
-                filtered_dict[key] = val
-        if len(filtered_dict) == 0:
-            print("Hanover did not play this team in this season. Please try again.")
-            get_game_page(game_urls_2019, game_urls_2018)
-        elif len(filtered_dict) == 1:
-            return filtered_dict
-        else:
-            return filtered_dict
-    elif szn_input == "2018":
+    if szn_input != "2018" and szn_input != "2019":
+        szn_input = input("This season is not available in this application. Try Either '2019' or '2018'. ")
+    filtered_dict = {}
+    if szn_input == "2018":
         opp_input = input("Which game in this season would you like to view? (enter opponent) ")
         for key, val in game_urls_2018.items():
             if opp_input == key[0]:
                 filtered_dict[key] = val
+        print(filtered_dict)
         if len(filtered_dict) == 0:
             print("Hanover did not play this team in this season. Please try again.")
-            get_game_page(game_urls_2019, game_urls_2018)
         elif len(filtered_dict) == 1:
-            return filtered_dict
+            for opp in filtered_dict:
+                return filtered_dict[opp]
         else:
-            return filtered_dict
-    else:
-        print("This season is not available in this application. Try Either '2019' or '2018.")
-        get_game_page(game_urls_2019, game_urls_2018)
+            for k, v in filtered_dict.items():
+                print(k[1])
+            date_input = input("Hanover has played this team multiple times. Enter date of game you want to see: ")
+            for k, v in filtered_dict.items():
+                if date_input == k[1]:
+                    return v
+    elif szn_input == "2019":
+        opp_input = input("Which game in this season would you like to view? (enter opponent) ")
+        for key, val in game_urls_2019.items():
+            if opp_input == key[0]:
+                filtered_dict[key] = val
+        print(filtered_dict)
+        if len(filtered_dict) == 0:
+            print("Hanover did not play this team in this season. Please try again.")
+        elif len(filtered_dict) == 1:
+            for opp in filtered_dict:
+                return filtered_dict[opp]
+        else:
+            for k, v in filtered_dict.items():
+                print(k[1])
+            date_input = input("Hanover has played this team multiple times. Enter date of game you want to see: ")
+            for k, v in filtered_dict.items():
+                if date_input == k[1]:
+                    return v
 
 
 def create_game_objects():
     """Returns the info collected from the HanoverGame class for the selected game."""
+
 
     return
 
