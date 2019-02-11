@@ -34,13 +34,24 @@ def get_game_url_dict():
     return Game_Urls_2018, Game_Urls_2019
 
 # helper function that takes the url and opens the page through a get request and returns the page
-def get_game_page(Game_Urls_2018, Game_Urls_2019):
+def get_game_page(Game_Urls_2019, Game_Urls_2018):
     """Returns the specific game url for the game that is being selected."""
 
+    filtered_dict = {}
     szn_input = input("Which Hanover Men's Basketball season would you like to view? (2019 or 2018) ")
-    if szn_input == 2019:
-        opp_input =
-    return
+    if szn_input == "2019":
+        opp_input = input("Which game in this season would you like to view? (enter opponent) ")
+        for key, val in Game_Urls_2019.items():
+            if opp_input == key[0]:
+                filtered_dict[key] = val
+        print(filtered_dict)
+        if len(filtered_dict) == 0:
+            print("Hanover did not play this team in this season. Please try again.")
+            get_game_page(Game_Urls_2019, Game_Urls_2018)
+        elif len(filtered_dict) == 1:
+            return filtered_dict[opp_input]
+        else:
+            return filtered_dict
 
 def create_game_objects():
     """Returns the info collected from the HanoverGame class for the selected game."""
