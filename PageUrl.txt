@@ -53,3 +53,4 @@ Bluffton Home = requests.get('https://hanover.prestosports.com/sports/mbkb/2018-
 Rose-Hulman Home = requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190130_rt6s.xml')
 Anderson Away = requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190202_165s.xml')
 Earlham Home = requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190206_uep8.xml')
+Manchester Home = requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190209_solb.xml')
