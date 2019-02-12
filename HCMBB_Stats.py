@@ -47,27 +47,10 @@ def get_game_page(game_urls_2018, game_urls_2019):
     filtered_dict = {}
     if szn_input == "2018":
         opp_input = input("Which game in this season would you like to view? (enter opponent) ")
+        # Attempting to use valid_game() function
+        valid = valid_game(opp_input, game_urls_2018)
         for key, val in game_urls_2018.items():
-            if opp_input == key[0]:
-                filtered_dict[key] = val
-        #Need to figure out how to keep looping the opp_input variable if input is not valid
-        #try helper function valid_game() ???
-        if len(filtered_dict) == 0:
-            print("Hanover did not play this team in this season. Please try again: ")
-        elif len(filtered_dict) == 1:
-            for opp in filtered_dict:
-                return filtered_dict[opp]
-        else:
-            for k, v in filtered_dict.items():
-                print(k[1])
-            date_input = input("Hanover has played this team multiple times. Enter date of game you want to see: ")
-            for k, v in filtered_dict.items():
-                if date_input == k[1]:
-                    return v
-    elif szn_input == "2019":
-        opp_input = input("Which game in this season would you like to view? (enter opponent) ")
-        for key, val in game_urls_2019.items():
-            if opp_input == key[0]:
+            if valid == key[0]:
                 filtered_dict[key] = val
         # Need to figure out how to keep looping the opp_input variable if input is not valid
         # try helper function valid_game() ???
@@ -77,20 +60,47 @@ def get_game_page(game_urls_2018, game_urls_2019):
             for opp in filtered_dict:
                 return filtered_dict[opp]
         else:
-            for k, v in filtered_dict.items():
-                print(k[1])
+            for key, val in filtered_dict.items():
+                print(key[1])
             date_input = input("Hanover has played this team multiple times. Enter date of game you want to see: ")
-            for k, v in filtered_dict.items():
-                if date_input == k[1]:
-                    return v
+            for key, val in filtered_dict.items():
+                if date_input == key[1]:
+                    return val
+    elif szn_input == "2019":
+        opp_input = input("Which game in this season would you like to view? (enter opponent) ")
+        # Attempting to use valid_game() function
+        valid = valid_game(opp_input, game_urls_2019)
+        for key, val in game_urls_2019.items():
+            if valid == key[0]:
+                filtered_dict[key] = val
+        # Need to figure out how to keep looping the opp_input variable if input is not valid
+        # try helper function valid_game() ???
+        if len(filtered_dict) == 0:
+            print("Hanover did not play this team in this season. Please try again: ")
+        elif len(filtered_dict) == 1:
+            for opp in filtered_dict:
+                return filtered_dict[opp]
+        else:
+            for key, val in filtered_dict.items():
+                print(key[1])
+            date_input = input("Hanover has played this team multiple times. Enter date of game you want to see: ")
+            for key, val in filtered_dict.items():
+                if date_input == key[1]:
+                    return val
 
 def valid_game(opp, game_dict):
-    for key, val in game_dict:
+    # Almost have this completely working
+    # messes up if there are a few invalid inputs followed by a valid input
+    """Returns the opponent's name as a string if valid in the season's dictionary."""
+
+    print(game_dict)
+    print(opp)
+    for key, val in game_dict.items():
+        print(key[0])
         if opp == key[0]:
-            return True
-        else:
-            new_opp_input = input("Hanover did not play this team in this season. Please try again: ")
-            valid_game(new_opp_input, game_dict)
+            return opp
+    new_opp_input = input("Hanover did not play this team in this season. Please try again: ")
+    valid_game(new_opp_input, game_dict)
 
 def create_game_objects():
     """Returns the info collected from the HanoverGame class for the selected game."""
