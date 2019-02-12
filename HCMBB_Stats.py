@@ -50,8 +50,10 @@ def get_game_page(game_urls_2018, game_urls_2019):
         for key, val in game_urls_2018.items():
             if opp_input == key[0]:
                 filtered_dict[key] = val
+        #Need to figure out how to keep looping the opp_input variable if input is not valid
+        #try helper function valid_game() ???
         if len(filtered_dict) == 0:
-            print("Hanover did not play this team in this season. Please try again.")
+            print("Hanover did not play this team in this season. Please try again: ")
         elif len(filtered_dict) == 1:
             for opp in filtered_dict:
                 return filtered_dict[opp]
@@ -67,8 +69,10 @@ def get_game_page(game_urls_2018, game_urls_2019):
         for key, val in game_urls_2019.items():
             if opp_input == key[0]:
                 filtered_dict[key] = val
+        # Need to figure out how to keep looping the opp_input variable if input is not valid
+        # try helper function valid_game() ???
         if len(filtered_dict) == 0:
-            print("Hanover did not play this team in this season. Please try again.")
+            print("Hanover did not play this team in this season. Please try again: ")
         elif len(filtered_dict) == 1:
             for opp in filtered_dict:
                 return filtered_dict[opp]
@@ -80,6 +84,13 @@ def get_game_page(game_urls_2018, game_urls_2019):
                 if date_input == k[1]:
                     return v
 
+def valid_game(opp, game_dict):
+    for key, val in game_dict:
+        if opp == key[0]:
+            return True
+        else:
+            new_opp_input = input("Hanover did not play this team in this season. Please try again: ")
+            valid_game(new_opp_input, game_dict)
 
 def create_game_objects():
     """Returns the info collected from the HanoverGame class for the selected game."""
