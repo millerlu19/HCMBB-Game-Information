@@ -42,7 +42,7 @@ def get_game_page(game_urls_2018, game_urls_2019):
     """Returns the specific game url for the game that is being selected."""
 
     szn_input = input("Which Hanover Men's Basketball season would you like to view? (2019 or 2018) ")
-    if szn_input != "2018" and szn_input != "2019":
+    while szn_input != "2018" and szn_input != "2019":
         szn_input = input("This season is not available in this application. Try Either '2019' or '2018'. ")
     filtered_dict = {}
     if szn_input == "2018":
@@ -50,7 +50,6 @@ def get_game_page(game_urls_2018, game_urls_2019):
         for key, val in game_urls_2018.items():
             if opp_input == key[0]:
                 filtered_dict[key] = val
-        print(filtered_dict)
         if len(filtered_dict) == 0:
             print("Hanover did not play this team in this season. Please try again.")
         elif len(filtered_dict) == 1:
@@ -68,7 +67,6 @@ def get_game_page(game_urls_2018, game_urls_2019):
         for key, val in game_urls_2019.items():
             if opp_input == key[0]:
                 filtered_dict[key] = val
-        print(filtered_dict)
         if len(filtered_dict) == 0:
             print("Hanover did not play this team in this season. Please try again.")
         elif len(filtered_dict) == 1:
@@ -89,17 +87,13 @@ def create_game_objects():
 
     return
 
-
-# main()
-# Creates a long list of the box score urls for each game played
-# Create a HanoverGame object for each game page url
-# dictionary -> key: tuple (opponent, month & day, year), value: HanoverGame object
 def main():
+#Store the dictionaries for each HCMBB season under variables by calling the get_game_url_dict() function
+    #key=(opponent, date), value=url
     game_urls_2018 = get_game_url_dict()[0]
-    print(game_urls_2018)
     game_urls_2019 = get_game_url_dict()[1]
-    print(game_urls_2019)
 
+#Store the specific game url that the user selects by calling the get_game_page() function
     game_page = get_game_page(game_urls_2018, game_urls_2019)
     print(game_page)
 
