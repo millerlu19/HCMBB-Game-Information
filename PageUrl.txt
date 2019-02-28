@@ -54,3 +54,7 @@ Rose-Hulman = requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19
 Anderson = requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190202_165s.xml')
 Earlham = requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190206_uep8.xml')
 Manchester = requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190209_solb.xml')
+Mt. St. Joseph = requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190213_sgj0.xml')
+Defiance = requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190216_1dmu.xml')
+Bluffton = requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190223_bb43.xml')
+Transylvania = requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190224_1i7o.xml')
