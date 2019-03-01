@@ -90,7 +90,8 @@ def get_game_page(game_urls_2018, game_urls_2019):
 
 def valid_game(opp, game_dict):
     # Almost have this completely working
-    # messes up if there are a few invalid inputs followed by a valid input
+    # messes up if there are a few invalid opponent inputs followed by a valid input
+    # print(opp) stops at selected opponent but says "Please try again:" and ends program
     """Returns the opponent's name as a string if valid in the season's dictionary."""
 
     print(game_dict)
