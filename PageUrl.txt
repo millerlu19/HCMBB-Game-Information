@@ -58,3 +58,4 @@ Mt. St. Joseph = requests.get('https://hanover.prestosports.com/sports/mbkb/2018
 Defiance = requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190216_1dmu.xml')
 Bluffton = requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190223_bb43.xml')
 Transylvania = requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190224_1i7o.xml')
+Wheaton = requests.get('https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190301_0i35.xml')
