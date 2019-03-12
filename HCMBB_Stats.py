@@ -44,13 +44,26 @@ def get_game_url_dict():
     return game_urls
 
 def is_game_line(line):
+    """
+    Returns true if the line in the PageUrl text file is a box score link.
+    Returns false if the line is blank or a comment.
+    """
     return not line.startswith('#') and not len(line) == 0
 
 def get_date(link):
+    """
+    Returns the date of the game played in the form it is shown in the box score link.
+    Turns date into an integer.
+    """
     date = link.split('/')[-1].split('_')[0]
     return int(date)
 
 def get_season(date):
+    """
+    Returns the season that the specific basketball game was played in.
+    2018 -> 2017-2018 season.
+    2019 -> 2018-2019 season.
+    """
     year = date // 10000
     breakpoint = (year * 10000) + 700
     if date < breakpoint:
@@ -59,6 +72,10 @@ def get_season(date):
         return year + 1
 
 def gen_year_list(start_year):
+    """
+    Returns a list of the number of seasons this program has games for.
+    Exa: [2018, 2019].
+    """
     years = []
     for year in range(start_year, current_year + 1):
         years.append(year)
