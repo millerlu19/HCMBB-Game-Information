@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 
 
 # import HanoverGame.py
+# import HanoverSeason.py
 import datetime
 
 today = datetime.datetime.today()
@@ -64,7 +65,7 @@ def gen_year_list(start_year):
     return years
 
 # helper function that takes the url and opens the page through a get request and returns the page
-def get_game_page(game_urls_2018, game_urls_2019):
+def get_game_page(season_dict):
     """Returns the specific game url for the game that is being selected."""
 
     szn_input = input("Which Hanover Men's Basketball season would you like to view? (2019 or 2018) ")
@@ -74,7 +75,7 @@ def get_game_page(game_urls_2018, game_urls_2019):
     if szn_input == "2018":
         opp_input = input("Which game in this season would you like to view? (enter opponent) ")
         # Attempting to use valid_game() function
-        valid = valid_game(opp_input, game_urls_2018)
+        valid = valid_game(opp_input, season_dict)
         for key, val in game_urls_2018.items():
             if valid == key[0]:
                 filtered_dict[key] = val
@@ -135,14 +136,8 @@ def create_game_objects():
     return
 
 def main():
-#Store the dictionaries for each HCMBB season under variables by calling the get_game_url_dict() function
-    #key=(opponent, date), value=url
-    game_urls_2018 = get_game_url_dict()[0]
-    game_urls_2019 = get_game_url_dict()[1]
-
-#Store the specific game url that the user selects by calling the get_game_page() function
-    game_page = get_game_page(game_urls_2018, game_urls_2019)
-    print(game_page)
+    season_dict = get_game_url_dict()
+    get_game_page(season_dict)
 
 
 main()
