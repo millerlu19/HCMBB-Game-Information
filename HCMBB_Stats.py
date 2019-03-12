@@ -6,6 +6,11 @@ from bs4 import BeautifulSoup
 
 
 # import HanoverGame.py
+import datetime
+
+today = datetime.datetime.today()
+current_year = today.year
+
 
 START_YEAR = 2018
 
@@ -19,13 +24,10 @@ def get_game_url_dict():
     """
     PageUrls = open('PageUrl.txt', 'r')
 
-    Game_Urls_2018 = {}
-    Game_Urls_2019 = {}
-
-    #Game_Urls = {}
-    #YearList = gen_year_list(START_YEAR)
-    #for year in YearList:
-    #   Game_Urls[year] = {}
+    game_urls = {}
+    year_list = gen_year_list(START_YEAR)
+    for year in year_list:
+        game_urls[year] = {}
 
     for line in PageUrls:
         line = line.strip()
@@ -34,11 +36,11 @@ def get_game_url_dict():
             date = get_date(link)
             game_key = (opp, date)
             season = get_season(date)
-            Game_Urls[season][game_key] = link
+            game_urls[season][game_key] = link
 
     PageUrls.close()
 
-    return Games_Urls
+    return game_urls
 
 def is_game_line(line):
     return not line.startswith('#') and not len(line) == 0
@@ -48,10 +50,18 @@ def get_date(link):
     return int(date)
 
 def get_season(date):
-
+    year = date // 10000
+    breakpoint = (year * 10000) + 700
+    if date < breakpoint:
+        return year
+    else:
+        return year + 1
 
 def gen_year_list(start_year):
-
+    years = []
+    for year in range(start_year, current_year + 1):
+        years.append(year)
+    return years
 
 # helper function that takes the url and opens the page through a get request and returns the page
 def get_game_page(game_urls_2018, game_urls_2019):
