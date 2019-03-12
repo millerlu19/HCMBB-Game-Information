@@ -7,6 +7,8 @@ from bs4 import BeautifulSoup
 
 # import HanoverGame.py
 
+START_YEAR = 2018
+
 # def get_urls_dict()
 # key = (opponent, date)
 # value = url
@@ -20,21 +22,35 @@ def get_game_url_dict():
     Game_Urls_2018 = {}
     Game_Urls_2019 = {}
 
+    #Game_Urls = {}
+    #YearList = gen_year_list(START_YEAR)
+    #for year in YearList:
+    #   Game_Urls[year] = {}
+
     for line in PageUrls:
         line = line.strip()
-        if not line.startswith('#') and not len(line) == 0:
+        if is_game_line(line):
             opp, link = line.split(' = ')
-            date = link.split('/')[-1].split('_')[0]
-            opponent = (opp, date)
-            date_int = int(date)
-            if date_int <= 20180302:
-                Game_Urls_2018[opponent] = link
-            else:
-                Game_Urls_2019[opponent] = link
+            date = get_date(link)
+            game_key = (opp, date)
+            season = get_season(date)
+            Game_Urls[season][game_key] = link
 
     PageUrls.close()
 
-    return Game_Urls_2018, Game_Urls_2019
+    return Games_Urls
+
+def is_game_line(line):
+    return not line.startswith('#') and not len(line) == 0
+
+def get_date(link):
+    date = link.split('/')[-1].split('_')[0]
+    return int(date)
+
+def get_season(date):
+
+
+def gen_year_list(start_year):
 
 
 # helper function that takes the url and opens the page through a get request and returns the page
@@ -74,10 +90,8 @@ def get_game_page(game_urls_2018, game_urls_2019):
             if valid == key[0]:
                 filtered_dict[key] = val
         # Need to figure out how to keep looping the opp_input variable if input is not valid
-        # try helper function valid_game() ???
-        if len(filtered_dict) == 0:
-            print("Hanover did not play this team in this season. Please try again: ")
-        elif len(filtered_dict) == 1:
+        print(filtered_dict)
+        if len(filtered_dict) == 1:
             for opp in filtered_dict:
                 return filtered_dict[opp]
         else:
@@ -100,8 +114,9 @@ def valid_game(opp, game_dict):
         print(key[0])
         if opp == key[0]:
             return opp
-    new_opp_input = input("Hanover did not play this team in this season. Please try again: ")
-    valid_game(new_opp_input, game_dict)
+        else:
+            new_opp_input = input("Hanover did not play this team in this season. Please try again: ")
+            valid_game(new_opp_input, game_dict)
 
 def create_game_objects():
     """Returns the info collected from the HanoverGame class for the selected game."""
