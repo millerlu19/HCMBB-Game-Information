@@ -153,6 +153,7 @@ def main():
     games = get_opponent_list(game_list)
     print(games)
     game_input = input("Which game in this Hanover season would you like to view? Games include: {}. ".format(games))
-    print(get_game_page(seasons_dict, season_input, game_input))
+    game_page = get_game_page(seasons_dict, season_input, game_input)
+    print(game_page)
 
 main()
