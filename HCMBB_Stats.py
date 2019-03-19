@@ -164,8 +164,6 @@ def main():
     print(seasons_dict)
     seasons = seasons_dict.keys()
     season_input = int(input("Which Hanover Men's Basketball season would you like to view? Seasons include: {}. ".format(seasons)))
-# Would like to set games to equal just the opponent name instead of the tuple with the opponent and date
-#   exa: "Spalding" instead of "('Spalding, 20181113)"
     season = seasons_dict[season_input]
     game_list = list(season.keys())
     print(game_list)
