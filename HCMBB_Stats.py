@@ -82,9 +82,9 @@ def get_season(date):
         return year + 1
 
 def get_opponent_list(game_list):
-    games = []
-    for i in game_list:
-        games.append(game_list[i][0])
+    """Returns a list of only the opponent names from a specific season."""
+
+    games = [game[0] for game in game_list]
     return games
 
 # helper function that takes the url and opens the page through a get request and returns the page
@@ -170,8 +170,8 @@ def main():
     game_list = list(season.keys())
     print(game_list)
     games = get_opponent_list(game_list)
+    print(games)
     game_input = input("Which game in this Hanover season would you like to view? Games include: {}. ".format(games))
     print(get_game_page(seasons_dict, season_input, game_input))
-
 
 main()
