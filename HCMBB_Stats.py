@@ -85,6 +85,7 @@ def get_season(date):
 def get_game_page(seasons_dict, season, game_key):
     """Returns the specific game url for the game that is being selected."""
 
+# Why does this not work?
     return seasons_dict[season][game_key]
 
     # filtered_dict = {}
@@ -155,6 +156,8 @@ def main():
     seasons_dict = get_game_url_dict()
     seasons = seasons_dict.keys()
     season_input = int(input("Which Hanover Men's Basketball season would you like to view? Seasons include: {}. ".format(seasons)))
+# Would like to set games to equal just the opponent name instead of the tuple with the opponent and date
+#   exa: "Spalding" instead of "('Spalding, 20181113)"
     games = seasons_dict[season_input].keys()
     game_input = input("Which game in this Hanover season would you like to view? Games include: {}. ".format(games))
     get_game_page(seasons_dict, season_input, game_input)
