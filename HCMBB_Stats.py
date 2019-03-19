@@ -91,8 +91,7 @@ def get_opponent_list(game_list):
 def get_game_page(seasons_dict, season, game_key):
     """Returns the specific game url for the game that is being selected."""
 
-# Why does this not work?
-#    return seasons_dict[season][game_key]
+# How to return the value (link) from the specific game_key tuple in the seasons_dict dictionary
     return seasons_dict[season].get(game_key)
 
     # filtered_dict = {}
@@ -136,22 +135,6 @@ def get_game_page(seasons_dict, season, game_key):
     #         for key, val in filtered_dict.items():
     #             if date_input == key[1]:
     #                 return val
-
-def valid_game(opp, game_dict):
-    # Almost have this completely working
-    # messes up if there are a few invalid opponent inputs followed by a valid input
-    # print(opp) stops at selected opponent but says "Please try again:" and ends program
-    """Returns the opponent's name as a string if valid in the season's dictionary."""
-
-    print(game_dict)
-    print(opp)
-    for key, val in game_dict.items():
-        print(key[0])
-        if opp == key[0]:
-            return opp
-        else:
-            new_opp_input = input("Hanover did not play this team in this season. Please try again: ")
-            valid_game(new_opp_input, game_dict)
 
 def create_game_objects():
     """Returns the info collected from the HanoverGame class for the selected game."""
