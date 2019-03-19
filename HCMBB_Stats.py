@@ -87,54 +87,17 @@ def get_opponent_list(game_list):
     games = [game[0] for game in game_list]
     return games
 
-# helper function that takes the url and opens the page through a get request and returns the page
+def get_game_key(game_keys, opp_list, opp):
+    """Returns the specific game_key tuple based off of the user's game_input entry in the main function."""
+
+    for i in range(len(opp_list)):
+        if opp_list[i] == opp:
+            return game_keys[i]
+
 def get_game_page(seasons_dict, season, game_key):
     """Returns the specific game url for the game that is being selected."""
 
-# How to return the value (link) from the specific game_key tuple in the seasons_dict dictionary
     return seasons_dict[season].get(game_key)
-
-    # filtered_dict = {}
-    # if season == "2018":
-    #     opp_input = input("Which game in this season would you like to view? (enter opponent) ")
-    #     # Attempting to use valid_game() function
-    #     valid = valid_game(opp_input, season_dict)
-    #     for key, val in game_urls_2018.items():
-    #         if valid == key[0]:
-    #             filtered_dict[key] = val
-    #     # Need to figure out how to keep looping the opp_input variable if input is not valid
-    #     # try helper function valid_game() ???
-    #     if len(filtered_dict) == 0:
-    #         print("Hanover did not play this team in this season. Please try again: ")
-    #     elif len(filtered_dict) == 1:
-    #         for opp in filtered_dict:
-    #             return filtered_dict[opp]
-    #     else:
-    #         for key, val in filtered_dict.items():
-    #             print(key[1])
-    #         date_input = input("Hanover has played this team multiple times. Enter date of game you want to see: ")
-    #         for key, val in filtered_dict.items():
-    #             if date_input == key[1]:
-    #                 return val
-    # elif szn_input == "2019":
-    #     opp_input = input("Which game in this season would you like to view? (enter opponent) ")
-    #     # Attempting to use valid_game() function
-    #     valid = valid_game(opp_input, game_urls_2019)
-    #     for key, val in game_urls_2019.items():
-    #         if valid == key[0]:
-    #             filtered_dict[key] = val
-    #     # Need to figure out how to keep looping the opp_input variable if input is not valid
-    #     print(filtered_dict)
-    #     if len(filtered_dict) == 1:
-    #         for opp in filtered_dict:
-    #             return filtered_dict[opp]
-    #     else:
-    #         for key, val in filtered_dict.items():
-    #             print(key[1])
-    #         date_input = input("Hanover has played this team multiple times. Enter date of game you want to see: ")
-    #         for key, val in filtered_dict.items():
-    #             if date_input == key[1]:
-    #                 return val
 
 def create_game_objects():
     """Returns the info collected from the HanoverGame class for the selected game."""
@@ -153,7 +116,9 @@ def main():
     games = get_opponent_list(game_list)
     print(games)
     game_input = input("Which game in this Hanover season would you like to view? Games include: {}. ".format(games))
-    game_page = get_game_page(seasons_dict, season_input, game_input)
+    game_key = get_game_key(game_list, games, game_input)
+    print(game_key)
+    game_page = get_game_page(seasons_dict, season_input, game_key)
     print(game_page)
 
 main()
