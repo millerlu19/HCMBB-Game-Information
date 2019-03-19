@@ -162,7 +162,7 @@ def create_game_objects():
 def main():
     seasons_dict = get_game_url_dict()
     print(seasons_dict)
-    seasons = seasons_dict.keys()
+    seasons = list(seasons_dict.keys())
     season_input = int(input("Which Hanover Men's Basketball season would you like to view? Seasons include: {}. ".format(seasons)))
     season = seasons_dict[season_input]
     game_list = list(season.keys())
