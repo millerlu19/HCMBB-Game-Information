@@ -97,6 +97,9 @@ def get_game_key(game_keys, opp_list, opp):
 def get_game_page(seasons_dict, season, game_key):
     """Returns the specific game url for the game that is being selected."""
 
+# Only issue is when the opponent is a team they play more than once (HCAC team)
+#   right now function will return the first occurrence of when the two teams played
+#   need to update program where user can select which occurrence of the HCAC opponent they want to see
     return seasons_dict[season].get(game_key)
 
 def create_game_objects():
