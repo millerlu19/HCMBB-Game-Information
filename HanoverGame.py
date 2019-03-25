@@ -8,98 +8,99 @@ class HanoverGame:
     def __init__(self, page_url):
         req = requests.get(page_url)
         self.page = BeautifulSoup(req.content, 'html.parser')
-#        print(self.page.prettify())
-        self.location = self.setLocation()
-        self.opponent = self.setOpponent()
-        self.HanoverScore = self.setHanoverScore()
-        self.OpponentScore = self.setOpponentScore()
-        self.date = self.setDate()
+        # print(self.page.prettify())
+        self.location = self.set_location()
+        self.opponent = self.set_opponent()
+        self.hanover_score = self.set_hanover_score()
+        self.opponent_score = self.set_opponent_score()
+        self.date = self.set_date()
 
     def __str__(self):
-        return self.location + " " + self.opponent + " " + self.date
+        return self.location + " | " + "Hanover: " + self.hanover_score + " | " + self.opponent + ": " \
+               + self.opponent_score + " | " + self.date
 
-    def setLocation(self):
+    def set_location(self):
         game_info = self.page.find(class_='game-info')
         game_info_list = list(game_info.children)[1].prettify().split()
-        game_location_list = game_info_list[40:42]
+        game_location_list = game_info_list[40:44]
         game_location = " ".join(game_location_list)
         return game_location
 
-    def setOpponent(self):
-        Opponent_Name = list(self.page.find(class_='head').children)[1].prettify()
-        Opponent_Name = Opponent_Name.split()
-        if Opponent_Name[1] == "Hanover":
-            if len(Opponent_Name[3]) < 4 or Opponent_Name[3] == "Kent":
-                if Opponent_Name[5] == "-":
-                    Opponent_Name_List = Opponent_Name[3:7]
-                    Opponent_Name_String = " ".join(Opponent_Name_List)
-                    return Opponent_Name_String
+    def set_opponent(self):
+        opponent_name = list(self.page.find(class_='head').children)[1].prettify()
+        opponent_name = opponent_name.split()
+        if opponent_name[1] == "Hanover":
+            if len(opponent_name[3]) < 4 or opponent_name[3] == "Kent":
+                if opponent_name[5] == "-":
+                    opponent_name_list = opponent_name[3:7]
+                    opponent_name_string = " ".join(opponent_name_list)
+                    return opponent_name_string
                 else:
-                    Opponent_Name_List = Opponent_Name[3:6]
-                    Opponent_Name_String = " ".join(Opponent_Name_List)
-                    return Opponent_Name_String
-            elif len(Opponent_Name[3]) == 4:
-                Opponent_Name_List = Opponent_Name[3:5]
-                Opponent_Name_String = " ".join(Opponent_Name_List)
-                return Opponent_Name_String
+                    opponent_name_list = opponent_name[3:6]
+                    opponent_name_string = " ".join(opponent_name_list)
+                    return opponent_name_string
+            elif len(opponent_name[3]) == 4:
+                opponent_name_list = opponent_name[3:5]
+                opponent_name_string = " ".join(opponent_name_list)
+                return opponent_name_string
             else:
-                Opponent_Name_String = Opponent_Name[3]
-                return Opponent_Name_String
+                opponent_name_string = opponent_name[3]
+                return opponent_name_string
         else:
-            if len(Opponent_Name[1]) < 4 or Opponent_Name[1] == "Kent":
-                if Opponent_Name[3] == "-":
-                    Opponent_Name_List = Opponent_Name[1:5]
-                    Opponent_Name_String = " ".join(Opponent_Name_List)
-                    return Opponent_Name_String
+            if len(opponent_name[1]) < 4 or opponent_name[1] == "Kent":
+                if opponent_name[3] == "-":
+                    opponent_name_list = opponent_name[1:5]
+                    opponent_name_string = " ".join(opponent_name_list)
+                    return opponent_name_string
                 else:
-                    Opponent_Name_List = Opponent_Name[1:4]
-                    Opponent_Name_String = " ".join(Opponent_Name_List)
-                    return Opponent_Name_String
-            elif len(Opponent_Name[3]) == 4:
-                Opponent_Name_List = Opponent_Name[1:3]
-                Opponent_Name_String = " ".join(Opponent_Name_List)
-                return Opponent_Name_String
+                    opponent_name_list = opponent_name[1:4]
+                    opponent_name_string = " ".join(opponent_name_list)
+                    return opponent_name_string
+            elif len(opponent_name[3]) == 4:
+                opponent_name_list = opponent_name[1:3]
+                opponent_name_string = " ".join(opponent_name_list)
+                return opponent_name_string
             else:
-                Opponent_Name_String = Opponent_Name[1]
-                return Opponent_Name_String
+                opponent_name_string = opponent_name[1]
+                return opponent_name_string
 
-    def setHanoverScore(self):
+    def set_hanover_score(self):
         if self.location == "Home":
-            HanoverHomeScore = self.page.find(class_='team-score home')
-            HanoverHomeTotal = list(HanoverHomeScore.children)[0]
-            return HanoverHomeTotal
+            hanover_home_score = self.page.find(class_='team-score home')
+            hanover_home_total = list(hanover_home_score.children)[0]
+            return hanover_home_total
         else:
-            HanoverAwayScore = self.page.find(class_='team-score visitor')
-            HanoverAwayTotal = list(HanoverAwayScore.children)[0]
-            return HanoverAwayTotal
+            hanover_away_score = self.page.find(class_='team-score visitor')
+            hanover_away_total = list(hanover_away_score.children)[0]
+            return hanover_away_total
 
-    def setOpponentScore(self):
+    def set_opponent_score(self):
         if self.location == "Home":
-            OpponentHomeScore = self.page.find(class_='team-score home')
-            OpponentHomeTotal = list(OpponentHomeScore.children)[0]
-            return OpponentHomeTotal
+            opponent_home_score = self.page.find(class_='team-score visitor')
+            opponent_home_total = list(opponent_home_score.children)[0]
+            return opponent_home_total
         else:
-            OpponentAwayScore = self.page.find(class_='team-score visitor')
-            OpponentAwayTotal = list(OpponentAwayScore.children)[0]
-            return OpponentAwayTotal
+            opponent_away_score = self.page.find(class_='team-score home')
+            opponent_away_total = list(opponent_away_score.children)[0]
+            return opponent_away_total
 
-    def setDate(self):
+    def set_date(self):
         date = list(self.page.find(class_='head').children)[1].prettify()
-        game_date_list = date.split()[5:8]
+        game_date_list = date.split()[6:9]
         game_date_string = " ".join(game_date_list)
         return game_date_string
 
-    def getLocation(self):
+    def get_location(self):
         return self.location
 
-    def getOpponent(self):
+    def get_opponent(self):
         return self.opponent
 
-    def getHanoverScore(self):
-        return self.HanoverScore
+    def get_hanover_score(self):
+        return self.hanover_score
 
-    def getOpponentScore(self):
-        return self.OpponentScore
+    def get_opponent_score(self):
+        return self.opponent_score
 
-    def getDate(self):
+    def get_date(self):
         return self.date

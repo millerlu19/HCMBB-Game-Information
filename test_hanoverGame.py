@@ -4,11 +4,19 @@ from unittest import TestCase
 class TestHanoverGame(TestCase):
     def test___init__(self):
         import HanoverGame
-        url = "https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190301_0i35.xml"
-        hanover_game = HanoverGame.HanoverGame(url)
-        print(hanover_game)
-        self.assertEquals("Timken Gymnasium; Wooster, Ohio", hanover_game.location)
-        self.assertEquals("Wheaton", hanover_game.opponent)
-        self.assertEquals("March 1, 2019", hanover_game.date)
-        self.assertEquals("73", hanover_game.HanoverScore)
-        self.assertEquals("84", hanover_game.OpponentScore)
+
+        # Test 1: Wheaton; 3/1/19
+        wheaton_url = "https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20190301_0i35.xml"
+        vs_wheaton = HanoverGame.HanoverGame(wheaton_url)
+        print(vs_wheaton)
+        self.assertEqual("Timken Gymnasium; Wooster, Ohio", vs_wheaton.location)
+        self.assertEqual("March 1, 2019", vs_wheaton.date)
+        self.assertEqual("Wheaton", vs_wheaton.opponent)
+        self.assertEqual("73", vs_wheaton.HanoverScore)
+        self.assertEqual("84", vs_wheaton.OpponentScore)
+
+        # Test 2: Butler; 10/28/2017
+        butler_url = "https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171028_m0c1.xml"
+        vs_butler = HanoverGame.HanoverGame(butler_url)
+        print(vs_butler)
+        self.assertEqual("Indianapolis, Ind. -- Hinkle Fieldhouse", vs_butler.location)
