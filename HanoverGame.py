@@ -6,11 +6,9 @@ import requests
 class HanoverGame:
 
     def __init__(self, page_url):
-        print("IN HANOVERGAME CONSTRUCTOR")
-        print("page_url =", page_url)
         req = requests.get(page_url)
-        self.page = BeautifulSoup(req, 'html.parser')
-        print(self.page.prettify())
+        self.page = BeautifulSoup(req.content, 'html.parser')
+#        print(self.page.prettify())
         self.location = self.setLocation()
         self.opponent = self.setOpponent()
         self.HanoverScore = self.setHanoverScore()
@@ -21,12 +19,11 @@ class HanoverGame:
         return self.location + " " + self.opponent + " " + self.date
 
     def setLocation(self):
-        Game_Info = self.page.find(class_='game-info')
-        print(Game_Info)
-        Game_Info_List = list(Game_Info.children)[1].prettify().split()
-        Game_Location_List = Game_Info_List[40:42]
-        Game_Location = " ".join(Game_Location_List)
-        return Game_Location
+        game_info = self.page.find(class_='game-info')
+        game_info_list = list(game_info.children)[1].prettify().split()
+        game_location_list = game_info_list[40:42]
+        game_location = " ".join(game_location_list)
+        return game_location
 
     def setOpponent(self):
         Opponent_Name = list(self.page.find(class_='head').children)[1].prettify()
