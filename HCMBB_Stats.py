@@ -5,8 +5,8 @@ import requests
 from bs4 import BeautifulSoup
 
 
-# import HanoverGame.py
-# import HanoverSeason.py
+import HanoverGame
+# import HanoverSeason
 import datetime
 
 today = datetime.datetime.today()
@@ -133,5 +133,8 @@ def main():
     print(game_key)
     game_page = get_game_page(seasons_dict, season_input, game_key)
     print(game_page)
+    hanover_game = HanoverGame.HanoverGame(game_page)
+    print(hanover_game)
+
 
 main()
