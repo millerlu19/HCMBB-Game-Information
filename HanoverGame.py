@@ -70,8 +70,10 @@ class HanoverGame:
                 opponent_name_string = opponent_name[1]
                 return opponent_name_string
 
+# ONLY CONCERN IS FOR NEUTRAL-SITE LOCATIONS HOW TO DETERMINE WHICH SCORE IS WHO
+#   EVEN THOUGH FOR BOTH NEUTRAL-SITE LOCATIONS TESTED (Test 1 & Test 2) ARE SUCCESSFUL
     def set_hanover_score(self):
-        if self.location == "Home":
+        if self.location == "Collier Arena -- Hanover, Ind." or self.location == "Collier Arena (Hanover, IN)":
             hanover_home_score = self.page.find(class_='team-score home')
             hanover_home_total = list(hanover_home_score.children)[0]
             return hanover_home_total
@@ -81,7 +83,7 @@ class HanoverGame:
             return hanover_away_total
 
     def set_opponent_score(self):
-        if self.location == "Home":
+        if self.location == "Collier Arena -- Hanover, Ind." or self.location == "Collier Arena (Hanover, IN)":
             opponent_home_score = self.page.find(class_='team-score visitor')
             opponent_home_total = list(opponent_home_score.children)[0]
             return opponent_home_total
