@@ -19,5 +19,5 @@ class TestHanoverGame(TestCase):
         butler_url = "https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171028_m0c1.xml"
         vs_butler = HanoverGame.HanoverGame(butler_url)
         print(vs_butler)
-        self.assertEqual("Indianapolis, Ind. -- Hinkle Fieldhouse", vs_butler.location)
         self.assertEqual("October 28, 2017", vs_butler.date)
+        self.assertEqual("Indianapolis, Ind. -- Hinkle Fieldhouse", vs_butler.location)

@@ -2,6 +2,7 @@
 
 from bs4 import BeautifulSoup
 import requests
+import re
 
 class HanoverGame:
 
@@ -86,9 +87,9 @@ class HanoverGame:
 
     def set_date(self):
         date = list(self.page.find(class_='head').children)[1].prettify()
-        game_date_list = date.split()[6:9]
-        game_date_string = " ".join(game_date_list)
-        return game_date_string
+        date_split = re.split("<span>\n  ", date)
+        game_date = re.split("\n", date_split[-1])
+        return game_date[0]
 
     def get_location(self):
         return self.location
