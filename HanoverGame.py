@@ -22,10 +22,15 @@ class HanoverGame:
 
     def set_location(self):
         game_info = self.page.find(class_='game-info')
-        game_info_list = list(game_info.children)[1].prettify().split()
-        game_location_list = game_info_list[40:44]
-        game_location = " ".join(game_location_list)
-        return game_location
+        game_info_2 = list(game_info.children)[1].prettify()
+        # print(game_info_2)
+        location_split = re.split('Location:\n    </th>\n    <td class="text">\n     ', game_info_2)
+        location = re.split("\n", location_split[1])
+        return location[0]
+
+        # game_location_list = game_info_list[40:44]
+        # game_location = " ".join(game_location_list)
+        # return game_location
 
     def set_opponent(self):
         opponent_name = list(self.page.find(class_='head').children)[1].prettify()
