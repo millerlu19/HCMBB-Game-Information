@@ -9,7 +9,6 @@ class HanoverGame:
     def __init__(self, page_url):
         req = requests.get(page_url)
         self.page = BeautifulSoup(req.content, 'html.parser')
-        # print(self.page.prettify())
         self.location = self.set_location()
         self.opponent = self.set_opponent()
         self.hanover_score = self.set_hanover_score()
@@ -23,14 +22,9 @@ class HanoverGame:
     def set_location(self):
         game_info = self.page.find(class_='game-info')
         game_info_2 = list(game_info.children)[1].prettify()
-        # print(game_info_2)
         location_split = re.split('Location:\n    </th>\n    <td class="text">\n     ', game_info_2)
         location = re.split("\n", location_split[1])
         return location[0]
-
-        # game_location_list = game_info_list[40:44]
-        # game_location = " ".join(game_location_list)
-        # return game_location
 
     def set_opponent(self):
         opponent_name = list(self.page.find(class_='head').children)[1].prettify()
@@ -70,8 +64,6 @@ class HanoverGame:
                 opponent_name_string = opponent_name[1]
                 return opponent_name_string
 
-# ONLY CONCERN IS FOR NEUTRAL-SITE LOCATIONS HOW TO DETERMINE WHICH SCORE IS WHO
-#   EVEN THOUGH FOR BOTH NEUTRAL-SITE LOCATIONS TESTED (Test 1 & Test 2) ARE SUCCESSFUL
     def set_hanover_score(self):
         if self.location == "Collier Arena -- Hanover, Ind." or self.location == "Collier Arena (Hanover, IN)":
             hanover_home_score = self.page.find(class_='team-score home')
