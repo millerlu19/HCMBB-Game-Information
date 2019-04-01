@@ -65,24 +65,32 @@ class HanoverGame:
                 return opponent_name_string
 
     def set_hanover_score(self):
-        if self.location == "Collier Arena -- Hanover, Ind." or self.location == "Collier Arena (Hanover, IN)":
-            hanover_home_score = self.page.find(class_='team-score home')
-            hanover_home_total = list(hanover_home_score.children)[0]
-            return hanover_home_total
+        if self.is_home_game():
+            return self.set_home_score()
         else:
-            hanover_away_score = self.page.find(class_='team-score visitor')
-            hanover_away_total = list(hanover_away_score.children)[0]
-            return hanover_away_total
+            return self.set_away_score()
 
     def set_opponent_score(self):
-        if self.location == "Collier Arena -- Hanover, Ind." or self.location == "Collier Arena (Hanover, IN)":
-            opponent_home_score = self.page.find(class_='team-score visitor')
-            opponent_home_total = list(opponent_home_score.children)[0]
-            return opponent_home_total
+        if self.is_home_game():
+            return self.set_away_score()
         else:
-            opponent_away_score = self.page.find(class_='team-score home')
-            opponent_away_total = list(opponent_away_score.children)[0]
-            return opponent_away_total
+            return self.set_home_score()
+
+    def is_home_game(self):
+        if self.location == "Collier Arena -- Hanover, Ind." or self.location == "Collier Arena (Hanover, IN)":
+            return True
+        else:
+            return False
+
+    def set_home_score(self):
+        home_score = self.page.find(class_='team-score home')
+        home_total = list(home_score.children)[0]
+        return home_total
+
+    def set_away_score(self):
+        away_score = self.page.find(class_='team-score visitor')
+        away_total = list(away_score.children)[0]
+        return away_total
 
     def set_date(self):
         date = list(self.page.find(class_='head').children)[1].prettify()
