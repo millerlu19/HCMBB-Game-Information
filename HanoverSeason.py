@@ -3,27 +3,28 @@
 class HanoverSeason:
 
     def __init__(self):
-        self.season = setSeason()
-        self.StartDate = setStartDate()
-        self.EndDate = setEndDate()
-        self.games = setGames()
+        self.season = self.set_season()
+        self.start_date = self.set_start_date()
+        self.end_date = self.set_end_date()
+        self.games = self.set_games()
 
-    def setSeason(self):
+    def set_season(self):
 
-    def setStartDate(self):
+    def set_start_date(self):
 
-    def setEndDate(self):
+    def set_end_date(self):
 
-    def setDate(self):
+    def set_games(self):
 
-    def getSeason(self):
+
+    def get_season(self):
         return self.season
 
-    def getStartDate(self):
+    def get_start_date(self):
         return self.StartDate
 
-    def getEndDate(self):
+    def get_end_date(self):
         return self.EndDate
 
-    def getGames(self):
+    def get_games(self):
         return self.games
