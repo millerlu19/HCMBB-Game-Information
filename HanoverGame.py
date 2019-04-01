@@ -33,13 +33,13 @@ class HanoverGame:
             if len(opponent_name[3]) < 4 or opponent_name[3] == "Kent":
                 if opponent_name[5] == "-":
                     opponent_name_list = opponent_name[3:7]
-                    return self.get_opponent_string(opponent_name_list)
+                    return self.opponent_to_string(opponent_name_list)
                 else:
                     opponent_name_list = opponent_name[3:6]
-                    return self.get_opponent_string(opponent_name_list)
+                    return self.opponent_to_string(opponent_name_list)
             elif len(opponent_name[3]) == 4:
                 opponent_name_list = opponent_name[3:5]
-                return self.get_opponent_string(opponent_name_list)
+                return self.opponent_to_string(opponent_name_list)
             else:
                 opponent_name_string = opponent_name[3]
                 return opponent_name_string
@@ -47,18 +47,18 @@ class HanoverGame:
             if len(opponent_name[1]) < 4 or opponent_name[1] == "Kent":
                 if opponent_name[3] == "-":
                     opponent_name_list = opponent_name[1:5]
-                    return self.get_opponent_string(opponent_name_list)
+                    return self.opponent_to_string(opponent_name_list)
                 else:
                     opponent_name_list = opponent_name[1:4]
-                    return self.get_opponent_string(opponent_name_list)
+                    return self.opponent_to_string(opponent_name_list)
             elif len(opponent_name[3]) == 4:
                 opponent_name_list = opponent_name[1:3]
-                return self.get_opponent_string(opponent_name_list)
+                return self.opponent_to_string(opponent_name_list)
             else:
                 opponent_name_string = opponent_name[1]
                 return opponent_name_string
 
-    def get_opponent_string(self, opponent_name):
+    def opponent_to_string(self, opponent_name):
         opponent_name_string = " ".join(opponent_name)
         return opponent_name_string
 
