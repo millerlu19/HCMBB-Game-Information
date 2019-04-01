@@ -1,9 +1,4 @@
 # HCMBB_Stats.py
-from typing import Dict, Any
-
-import requests
-from bs4 import BeautifulSoup
-
 
 import HanoverGame
 # import HanoverSeason
@@ -15,9 +10,6 @@ current_year = today.year
 
 START_YEAR = 2018
 
-# def get_urls_dict()
-# key = (opponent, date)
-# value = url
 def get_game_url_dict():
     """
     Returns a list of all the urls of each Hanover games' box scores.
