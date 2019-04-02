@@ -1,5 +1,7 @@
 # HanoverSeason.py
 
+import HanoverGame
+
 class HanoverSeason:
 
     def __init__(self):
@@ -10,21 +12,21 @@ class HanoverSeason:
 
     def set_season(self):
 
+
     def set_start_date(self):
 
     def set_end_date(self):
 
     def set_games(self):
 
-
     def get_season(self):
         return self.season
 
     def get_start_date(self):
-        return self.StartDate
+        return self.start_date
 
     def get_end_date(self):
-        return self.EndDate
+        return self.end_date
 
     def get_games(self):
         return self.games

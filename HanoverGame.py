@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import requests
 import re
 
+
 class HanoverGame:
 
     def __init__(self, page_url):

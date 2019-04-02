@@ -10,19 +10,20 @@ current_year = today.year
 
 START_YEAR = 2018
 
+
 def get_game_url_dict():
     """
     Returns a list of all the urls of each Hanover games' box scores.
     Two separate Dictionaries for the 2017-2018 season and the 2018-2019 season.
     """
-    PageUrls = open('PageUrl.txt', 'r')
+    page_urls = open('PageUrl.txt', 'r')
 
     game_urls = {}
     season_list = gen_season_list(START_YEAR)
     for season in season_list:
         game_urls[season] = {}
 
-    for line in PageUrls:
+    for line in page_urls:
         line = line.strip()
         if is_game_line(line):
             opp, link = line.split(' = ')
@@ -31,9 +32,10 @@ def get_game_url_dict():
             season = get_season(date)
             game_urls[season][game_key] = link
 
-    PageUrls.close()
+    page_urls.close()
 
     return game_urls
+
 
 def gen_season_list(start_year):
     """
@@ -45,12 +47,14 @@ def gen_season_list(start_year):
         years.append(year)
     return years
 
+
 def is_game_line(line):
     """
     Returns true if the line in the PageUrl text file is a box score link.
     Returns false if the line is blank or a comment.
     """
     return not line.startswith('#') and not len(line) == 0
+
 
 def get_date(link):
     """
@@ -59,6 +63,7 @@ def get_date(link):
     """
     date = link.split('/')[-1].split('_')[0]
     return int(date)
+
 
 def get_season(date):
     """
@@ -73,11 +78,13 @@ def get_season(date):
     else:
         return year + 1
 
+
 def get_opponent_list(game_keys):
     """Returns a list of only the opponent names from a specific season."""
 
     games = [game[0] for game in game_keys]
     return games
+
 
 def get_game_key(game_keys, opp_list, opp):
     """Returns the specific game_key tuple based off of the user's game_input entry in the main function."""
@@ -99,16 +106,19 @@ def get_game_key(game_keys, opp_list, opp):
             if dates[i] == game_date:
                 return game_key_list[i]
 
+
 def get_game_page(seasons_dict, season, game_key):
     """Returns the specific game url for the game that is being selected."""
 
     return seasons_dict[season].get(game_key)
 
-def create_game_objects():
-    """Returns the info collected from the HanoverGame class for the selected game."""
 
+# def create_game_objects():
+#     """Returns the info collected from the HanoverGame class for the selected game."""
+#
+#
+#     return None
 
-    return
 
 def main():
     seasons_dict = get_game_url_dict()
