@@ -31,10 +31,11 @@ class HanoverSeason(HCMBB_Stats, HanoverGame):
         games = self.seasons_dict[season]
         return games
 
-    def get_games_list(self):
+    def get_opponents_list(self):
         games_dict = self.set_games_dict()
-        games_list = list(games_dict.keys())
-        return games_list
+        games_list = list(games_dict.keys()[0])
+        opp_list = HCMBB_Stats.get_opponent_list(games_list)
+        return opp_list
 
     def set_start_date(self):
 
