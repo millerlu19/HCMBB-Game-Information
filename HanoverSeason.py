@@ -38,8 +38,12 @@ class HanoverSeason(HCMBB_Stats, HanoverGame):
         return opp_list
 
     def set_start_date(self):
+        first_game_url = self.set_games_dict()[0]
+        return first_game_url.HanoverGame.set_date()
 
     def set_end_date(self):
+        last_game_url = self.set_games_dict()[-1]
+        return last_game_url.HanoverGame.set_date()
 
     def get_season(self):
         return self.season
