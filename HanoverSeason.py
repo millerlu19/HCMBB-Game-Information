@@ -3,6 +3,7 @@
 import HCMBB_Stats
 import HanoverGame
 
+
 class HanoverSeason(HCMBB_Stats, HanoverGame):
 
     def __init__(self):
@@ -11,6 +12,9 @@ class HanoverSeason(HCMBB_Stats, HanoverGame):
         self.games_in_season = self.get_opponents_list()
         self.start_date = self.set_start_date()
         self.end_date = self.set_end_date()
+
+    def __str__(self):
+        return self.season + " | " + self.start_date + "-" + self.end_date + " | " + self.games_in_season
 
     def set_season(self):
         seasons = list(self.seasons_dict.keys())
