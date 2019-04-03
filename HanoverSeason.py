@@ -6,9 +6,9 @@ import HanoverGame
 
 class HanoverSeason(HCMBB_Stats, HanoverGame):
 
-    def __init__(self):
+    def __init__(self, year):
         self.seasons_dict = HCMBB_Stats.get_game_url_dict()
-        self.season = self.full_season_string()
+        self.season = self.full_season_string(year)
         self.games_in_season = self.get_opponents_list()
         self.start_date = self.set_start_date()
         self.end_date = self.set_end_date()
@@ -16,18 +16,18 @@ class HanoverSeason(HCMBB_Stats, HanoverGame):
     def __str__(self):
         return self.season + " | " + self.start_date + "-" + self.end_date + " | " + self.games_in_season
 
-    def set_season(self):
-        seasons = list(self.seasons_dict.keys())
-        season = self.season_from_user(seasons)
-        return season
+    # def set_season(self):
+    #     seasons = list(self.seasons_dict.keys())
+    #     season = self.season_from_user(seasons)
+    #     return season
 
-    def season_from_user(self, seasons):
-        season_input = int(input("Which Hanover Men's Basketball season would you like to view? Seasons include: {}. ".format(seasons)))
-        return season_input
+    # def season_from_user(self, seasons):
+    #     season_input = int(input("Which Hanover Men's Basketball season would you like to view? Seasons include: {}. ".format(seasons)))
+    #     return season_input
 
-    def full_season_string(self):
-        season = self.set_season()
-        full_season_str = str(season - 1) + "-" + str(season)
+    def full_season_string(self, year):
+        # season = self.set_season()
+        full_season_str = str(year - 1) + "-" + str(year)
         return full_season_str
 
     def set_games_dict(self):

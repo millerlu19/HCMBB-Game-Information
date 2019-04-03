@@ -1,7 +1,5 @@
 # HCMBB_Stats.py
 
-import HanoverGame
-# import HanoverSeason
 import datetime
 
 today = datetime.datetime.today()
@@ -122,21 +120,21 @@ def get_game_page(seasons_dict, season, game_key):
 
 def main():
     seasons_dict = get_game_url_dict()
-    print(seasons_dict)
-    seasons = list(seasons_dict.keys())
-    season_input = int(input("Which Hanover Men's Basketball season would you like to view? Seasons include: {}. ".format(seasons)))
-    season = seasons_dict[season_input]
-    game_list = list(season.keys())
-    print(game_list)
-    games = get_opponent_list(game_list)
-    print(games)
-    game_input = input("Which game in this Hanover season would you like to view? Games include: {}. ".format(games))
-    game_key = get_game_key(game_list, games, game_input)
-    print(game_key)
-    game_page = get_game_page(seasons_dict, season_input, game_key)
-    print(game_page)
-    hanover_game = HanoverGame.HanoverGame(game_page)
-    print(hanover_game)
+    # print(seasons_dict)
+    # seasons = list(seasons_dict.keys())
+    # season_input = int(input("Which Hanover Men's Basketball season would you like to view? Seasons include: {}. ".format(seasons)))
+    # season = seasons_dict[season_input]
+    # game_list = list(season.keys())
+    # print(game_list)
+    # games = get_opponent_list(game_list)
+    # print(games)
+    # game_input = input("Which game in this Hanover season would you like to view? Games include: {}. ".format(games))
+    # game_key = get_game_key(game_list, games, game_input)
+    # print(game_key)
+    # game_page = get_game_page(seasons_dict, season_input, game_key)
+    # print(game_page)
+    # hanover_game = HanoverGame.HanoverGame(game_page)
+    # print(hanover_game)
 
 
 main()
