@@ -67,7 +67,7 @@ class HanoverGame:
             return self.set_home_score()
 
     def is_home_game(self):
-        if self.location == "Collier Arena -- Hanover, Ind." or self.location == "Collier Arena (Hanover, IN)":
+        if self.location[:7] == "Collier" or self.location[:7] == "Hanover":
             return True
         else:
             return False

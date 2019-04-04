@@ -1,10 +1,9 @@
 # HanoverSeason.py
 
 import HCMBB_Stats
-import HanoverGame
 
 
-class HanoverSeason():
+class HanoverSeason:
 
     SEASON_START = "10/1/"
     SEASON_END = "3/31/"

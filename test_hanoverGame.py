@@ -44,3 +44,13 @@ class TestHanoverGame(TestCase):
         self.assertEqual("Defiance", vs_defiance.opponent)
         self.assertEqual("77", vs_defiance.hanover_score)
         self.assertEqual("72", vs_defiance.opponent_score)
+
+        # Test 5: Akron-Wayne; Crestview Hills, Ky. - Connor Center; 11/16/2018; W 104-67
+        akron_wayne_url = "https://hanover.prestosports.com/sports/mbkb/2018-19/boxscores/20181116_r92b.xml"
+        vs_akron_wayne = HanoverGame.HanoverGame(akron_wayne_url)
+        print(akron_wayne_url)
+        self.assertEqual("Crestview Hills, Ky. - Connor Center", vs_akron_wayne.location)
+        self.assertEqual("November 16, 2018", vs_akron_wayne.date)
+        self.assertEqual("Akron-Wayne", vs_akron_wayne.opponent)
+        self.assertEqual("104", vs_akron_wayne.hanover_score)
+        self.assertEqual("67", vs_akron_wayne.opponent_score)
