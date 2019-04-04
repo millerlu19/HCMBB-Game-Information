@@ -15,13 +15,19 @@ def main():
     season_year = int(season_input[-4:])
     # season_inp_dict = dictionary of each game in season {(opponent, date_id): url}
     season_inp_dict = seasons_dict[season_year]
+    game_number = 1
     for game in season_inp_dict:
         game_url = season_inp_dict[game]
         game_date = HanoverGame.HanoverGame(game_url).date
         game_opp = HanoverGame.HanoverGame(game_url).opponent
         hanover_score = HanoverGame.HanoverGame(game_url).hanover_score
         opp_score = HanoverGame.HanoverGame(game_url).opponent_score
-        print(game_date + ":", game_opp, hanover_score, "-", opp_score)
+        if hanover_score > opp_score:
+            result = "W"
+        else:
+            result = "L"
+        print(game_number, "->", game_date + ":", game_opp + ",", result, hanover_score, "-", opp_score)
+        game_number += 1
 
 
 main()
