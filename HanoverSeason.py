@@ -4,53 +4,36 @@ import HCMBB_Stats
 import HanoverGame
 
 
-class HanoverSeason(HCMBB_Stats, HanoverGame):
+class HanoverSeason():
 
-    def __init__(self, year):
-        self.seasons_dict = HCMBB_Stats.get_game_url_dict()
-        self.season = self.full_season_string(year)
-        self.games_in_season = self.get_opponents_list()
-        self.start_date = self.set_start_date()
-        self.end_date = self.set_end_date()
+    SEASON_START = "10/1/"
+    SEASON_END = "3/31/"
+
+    def __init__(self, year, seasons_dict):
+        self.season_id = self.set_season_id(year)
+        self.games_dict = seasons_dict[year]
+        self.opponents_list = self.get_opponents_list()
+        self.start_date = self.set_start_date(year)
+        self.end_date = self.set_end_date(year)
 
     def __str__(self):
-        return self.season + " | " + self.start_date + "-" + self.end_date + " | " + self.games_in_season
+        return self.season_id + " | " + self.start_date + "-" + self.end_date + " | " + str(self.opponents_list)
 
-    # def set_season(self):
-    #     seasons = list(self.seasons_dict.keys())
-    #     season = self.season_from_user(seasons)
-    #     return season
-
-    # def season_from_user(self, seasons):
-    #     season_input = int(input("Which Hanover Men's Basketball season would you like to view? Seasons include: {}. ".format(seasons)))
-    #     return season_input
-
-    def full_season_string(self, year):
-        # season = self.set_season()
+    def set_season_id(self, year):
         full_season_str = str(year - 1) + "-" + str(year)
         return full_season_str
 
-    def set_games_dict(self):
-        season = self.set_season()
-        games = self.seasons_dict[season]
-        return games
-
     def get_opponents_list(self):
-        games_dict = self.set_games_dict()
-        games_list = list(games_dict.keys()[0])
-        opp_list = HCMBB_Stats.get_opponent_list(games_list)
-        return opp_list
+        return HCMBB_Stats.get_opponent_list(self.games_dict.keys())
 
-    def set_start_date(self):
-        first_game_url = self.set_games_dict()[0]
-        return first_game_url.HanoverGame.set_date()
+    def set_start_date(self, year):
+        return HanoverSeason.SEASON_START + str(year-1)
 
-    def set_end_date(self):
-        last_game_url = self.set_games_dict()[-1]
-        return last_game_url.HanoverGame.set_date()
+    def set_end_date(self, year):
+        return HanoverSeason.SEASON_END + str(year)
 
-    def get_season(self):
-        return self.season
+    def get_season_id(self):
+        return self.season_id
 
     def get_start_date(self):
         return self.start_date

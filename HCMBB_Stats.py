@@ -80,8 +80,7 @@ def get_season(date):
 def get_opponent_list(game_keys):
     """Returns a list of only the opponent names from a specific season."""
 
-    games = [game[0] for game in game_keys]
-    return games
+    return [game[0] for game in game_keys]
 
 
 def get_game_key(game_keys, opp_list, opp):
