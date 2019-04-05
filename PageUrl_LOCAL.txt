@@ -1,36 +1,36 @@
 # PageUrlLOCAL.txt
 
 ## 2017-2018 MBB Season
-Butler = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171028_m0c1.xml
-Kent State = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171117_26u3.xml
-Otterbein = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171118_h4fm.xml
-Spalding = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171121_6t9y.xml
-Wooster = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171125_q7io.xml
-Ohio Wesleyan = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171129_5u6z.xml
-Franklin = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171202_uidy.xml
-Transylvania = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171206_01gr.xml
-Bluffton = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171209_lytk.xml
-Defiance = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171216_mrxa.xml
-Marietta = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171229_3e67.xml
-Ohio-Chillicothe = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20171230_hohs.xml
-Rose-Hulman = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180103_eo0h.xml
-Manchester = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180106_90o3.xml
-Earlham = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180110_4h64.xml
-Anderson = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180113_anw0.xml
-Mt. St. Joseph = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180117_83jv.xml
-Franklin = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180120_g0e4.xml
-Transylvania = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180124_8532.xml
-Bluffton = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180127_pw2q.xml
-Rose-Hulman = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180131_4elz.xml
-Anderson = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180203_tjz8.xml
-Earlham = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180207_wd9a.xml
-Manchester = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180210_97g4.xml
-Mt. St. Joseph = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180214_zfuq.xml
-Defiance = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180217_7z40.xml
-Bluffton = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180220_yqr3.xml
-Mt. St. Joseph = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180223_7p1e.xml
-Rose-Hulman = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180224_m8nh.xml
-LeTourneau = https://hanover.prestosports.com/sports/mbkb/2017-18/boxscores/20180302_liy0.xml
+Butler = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Butler.html
+Kent State = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/KentSt.html
+Otterbein = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Otterbein.html
+Spalding = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Spalding.html
+Wooster = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Wooster.html
+Ohio Wesleyan = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/OhioWesleyan.html
+Franklin = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Franklin1.html
+Transylvania = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Transy1.html
+Bluffton = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Bluffton1.html
+Defiance = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Defiance1.html
+Marietta = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Marietta.html
+Ohio-Chillicothe = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/OHChillicothe.html
+Rose-Hulman = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Rose1.html
+Manchester = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Manchester1.html
+Earlham = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Earlham1.html
+Anderson = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Anderson1.html
+Mt. St. Joseph = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/MSJ1.html
+Franklin = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Franklin2.html
+Transylvania = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Transy2.html
+Bluffton = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Bluffton2.html
+Rose-Hulman = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Rose2.html
+Anderson = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Anderson2.html
+Earlham = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Earlham2.html
+Manchester = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Manchester2.html
+Mt. St. Joseph = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/MSJ2.html
+Defiance = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/Defiance2.html
+Bluffton = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/BlufftonConf.html
+Mt. St. Joseph = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/MSJConf.html
+Rose-Hulman = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/RoseConf.html
+LeTourneau = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2017-2018%20local%20pages/LeTourneau.html
 
 ## 2018-2019 MBB Season
 Spalding = file:///C:/Users/Lucas%20Miller/Documents/Senior%20Seminar/2018-2019%20local%20pages/Spalding.html
