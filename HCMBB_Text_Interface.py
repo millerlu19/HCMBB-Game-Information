@@ -23,10 +23,7 @@ def main():
         game_opp = HanoverGame.HanoverGame(game_url).opponent
         hanover_score = HanoverGame.HanoverGame(game_url).hanover_score
         opp_score = HanoverGame.HanoverGame(game_url).opponent_score
-        if hanover_score > opp_score:
-            game_result = "W"
-        else:
-            game_result = "L"
+        game_result = HanoverGame.HanoverGame(game_url).result
         print(game_number, "->", game_date + ":", game_opp + ",", game_result, hanover_score, "-", opp_score)
         game_number += 1
     game_input = int(input("Select game number: "))
@@ -37,16 +34,14 @@ def main():
     for key in game_keys:
         if key[0] == opp_name:
             game_key = key
+            break
     sel_game_url = seasons_dict[season_year][game_key]
     sel_game_date = HanoverGame.HanoverGame(sel_game_url).date
     sel_game_opp = HanoverGame.HanoverGame(sel_game_url).opponent
     sel_game_hc_score = HanoverGame.HanoverGame(sel_game_url).hanover_score
     sel_game_opp_score = HanoverGame.HanoverGame(sel_game_url).opponent_score
     sel_game_location = HanoverGame.HanoverGame(sel_game_url).location
-    if sel_game_hc_score > sel_game_opp_score:
-        sel_game_result = "W"
-    else:
-        sel_game_result = "L"
+    sel_game_result = HanoverGame.HanoverGame(sel_game_url).result
     print("Date:", sel_game_date, "\n")
     print(sel_game_result + ",", "Hanover:", sel_game_hc_score, sel_game_opp + ":", sel_game_opp_score, "\n")
     print("Game Location:", sel_game_location)

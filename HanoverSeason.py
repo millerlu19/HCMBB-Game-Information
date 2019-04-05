@@ -30,15 +30,3 @@ class HanoverSeason:
 
     def set_end_date(self, year):
         return HanoverSeason.SEASON_END + str(year)
-
-    def get_season_id(self):
-        return self.season_id
-
-    def get_start_date(self):
-        return self.start_date
-
-    def get_end_date(self):
-        return self.end_date
-
-    def get_games_dict(self):
-        return self.games_dict

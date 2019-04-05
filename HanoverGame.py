@@ -15,6 +15,7 @@ class HanoverGame:
         self.hanover_score = self.set_hanover_score()
         self.opponent_score = self.set_opponent_score()
         self.date = self.set_date()
+        self.result = self.set_result()
 
     def __str__(self):
         return self.location + " | " + "Hanover: " + self.hanover_score + " | " + self.opponent + ": " \
@@ -88,17 +89,8 @@ class HanoverGame:
         game_date = re.split("\n", date_split[-1])
         return game_date[0]
 
-    def get_location(self):
-        return self.location
-
-    def get_opponent(self):
-        return self.opponent
-
-    def get_hanover_score(self):
-        return self.hanover_score
-
-    def get_opponent_score(self):
-        return self.opponent_score
-
-    def get_date(self):
-        return self.date
+    def set_result(self):
+        if self.hanover_score > self.opponent_score:
+            return "W"
+        else:
+            return "L"
