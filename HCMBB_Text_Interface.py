@@ -2,49 +2,44 @@
 
 import HCMBB_Stats
 import HanoverSeason
-import HanoverGame
 
 
 def main():
     seasons_dict = HCMBB_Stats.get_game_url_dict()
-    # seasons_list = [2018, 2019] <- list of ints
     seasons_list = list(seasons_dict.keys())
+    print("Scraping data. This will take awhile...")
+    seasons_data = {}
     for year in seasons_list:
-        print(HanoverSeason.HanoverSeason(year, seasons_dict).season_id)
+        season = HanoverSeason.HanoverSeason(year, seasons_dict)
+        seasons_data[season.season_id] = season
+    print("Thanks for waiting! Starting demo...\n")
+
+    for season_id in seasons_data.keys():
+        print(season_id)
     season_input = input("Select Season: ")
 
-    season_year = int(season_input[-4:])
-    # season_inp_dict = dictionary of each game in season {(opponent, date_id): url}
-    season_inp_dict = seasons_dict[season_year]
+    season_inp_data = seasons_data[season_input]
     game_number = 1
-    for game in season_inp_dict:
-        game_url = season_inp_dict[game]
-        game_date = HanoverGame.HanoverGame(game_url).date
-        game_opp = HanoverGame.HanoverGame(game_url).opponent
-        hanover_score = HanoverGame.HanoverGame(game_url).hanover_score
-        opp_score = HanoverGame.HanoverGame(game_url).opponent_score
-        game_result = HanoverGame.HanoverGame(game_url).result
-        print(game_number, "->", game_date + ":", game_opp + ",", game_result, hanover_score, "-", opp_score)
+    for game_key in season_inp_data.games_dict:
+        game = season_inp_data.games_dict[game_key]
+        print(game_number, "->", game.date + ":", game.opponent + ",", game.result)
         game_number += 1
     game_input = int(input("Select game number: "))
 
-    opp_list = HanoverSeason.HanoverSeason(season_year, seasons_dict).opponents_list
+    opp_list = seasons_data[season_input].opponents_list
     opp_name = opp_list[game_input-1]
-    game_keys = seasons_dict[season_year].keys()
+
+    game_keys = seasons_data[season_input].games_dict.keys()
     for key in game_keys:
         if key[0] == opp_name:
             game_key = key
             break
-    sel_game_url = seasons_dict[season_year][game_key]
-    sel_game_date = HanoverGame.HanoverGame(sel_game_url).date
-    sel_game_opp = HanoverGame.HanoverGame(sel_game_url).opponent
-    sel_game_hc_score = HanoverGame.HanoverGame(sel_game_url).hanover_score
-    sel_game_opp_score = HanoverGame.HanoverGame(sel_game_url).opponent_score
-    sel_game_location = HanoverGame.HanoverGame(sel_game_url).location
-    sel_game_result = HanoverGame.HanoverGame(sel_game_url).result
-    print("Date:", sel_game_date, "\n")
-    print(sel_game_result + ",", "Hanover:", sel_game_hc_score, sel_game_opp + ":", sel_game_opp_score, "\n")
-    print("Game Location:", sel_game_location)
+    sel_game = season_inp_data.games_dict[game_key]
+
+    print("Date:", sel_game.date, "\n")
+    print(sel_game.result + ",", "Hanover:", sel_game.hanover_score, sel_game.opponent + ":", sel_game.opponent_score,
+          "\n")
+    print("Game Location:", sel_game.location)
 
 
 main()
