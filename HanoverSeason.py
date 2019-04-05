@@ -17,8 +17,8 @@ class HanoverSeason:
         self.start_date = self.set_start_date(year)
         self.end_date = self.set_end_date(year)
 
-        for game_key in self.games_dict:
-            print(self.games_dict[game_key])
+        # for game_key in self.games_dict:
+        #     print(self.games_dict[game_key])
 
     def __str__(self):
         return self.season_id + " | " + self.start_date + "-" + self.end_date + " | " + str(self.opponents_list)

@@ -7,7 +7,7 @@ import HanoverSeason
 def main():
     seasons_dict = HCMBB_Stats.get_game_url_dict()
     seasons_list = list(seasons_dict.keys())
-    print("Scraping data. This will take awhile...")
+    print("Scraping data. This will take awhile...\n")
     seasons_data = {}
     for year in seasons_list:
         season = HanoverSeason.HanoverSeason(year, seasons_dict)
@@ -16,6 +16,7 @@ def main():
 
     for season_id in seasons_data.keys():
         print(season_id)
+    print("\n")
     season_input = input("Select Season: ")
 
     season_inp_data = seasons_data[season_input]
@@ -24,10 +25,12 @@ def main():
         game = season_inp_data.games_dict[game_key]
         print(game_number, "->", game.date + ":", game.opponent + ",", game.result)
         game_number += 1
+    print("\n")
     game_input = int(input("Select game number: "))
 
     opp_list = seasons_data[season_input].opponents_list
     opp_name = opp_list[game_input-1]
+    print("\n")
 
     game_keys = seasons_data[season_input].games_dict.keys()
     for key in game_keys:
