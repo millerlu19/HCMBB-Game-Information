@@ -83,27 +83,6 @@ def get_opponent_list(game_keys):
     return [game[0] for game in game_keys]
 
 
-# def get_game_key(game_keys, opp_list, opp):
-#     """Returns the specific game_key tuple based off of the user's game_input entry in the main function."""
-#
-#     game_key_list = []
-#
-#     for i in range(len(opp_list)):
-#         if opp_list[i] == opp:
-#             game_key_list.append(game_keys[i])
-#
-#     dates = [game[1] for game in game_key_list]
-#
-#     if len(game_key_list) == 1:
-#         return game_key_list[0]
-#     else:
-#         game_date = int(input("Hanover has played this team multiple times. What is the date of the specific game you "
-#                                "would like to see? Dates include: {}. ".format(dates)))
-#         for i in range(len(dates)):
-#             if dates[i] == game_date:
-#                 return game_key_list[i]
-
-
 def get_game_page(seasons_dict, season, game_key):
     """Returns the specific game url for the game that is being selected."""
 

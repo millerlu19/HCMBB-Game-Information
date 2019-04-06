@@ -43,6 +43,10 @@ def main():
     print(sel_game.result + ",", "Hanover:", sel_game.hanover_score, sel_game.opponent + ":", sel_game.opponent_score,
           "\n")
     print("Game Location:", sel_game.location)
+    print("\n")
+    view_game = input("Would you like to view another game (y or n)? ")
+    while view_game == "y":
+        main()
 
 
 main()

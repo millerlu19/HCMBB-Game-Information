@@ -70,6 +70,8 @@ class HanoverGame:
     def is_home_game(self):
         if self.location[:7] == "Collier" or self.location[:7] == "Hanover":
             return True
+        elif self.get_home_team_from_header() == "Hanover":
+            return True
         else:
             return False
 
@@ -94,3 +96,11 @@ class HanoverGame:
             return "W"
         else:
             return "L"
+
+    def get_home_team_from_header(self):
+        game_header = self.page.find(class_='head')
+        game_title = list(game_header.children)[1].prettify()
+        game_title = re.split('\n', game_title)
+        game_title = game_title[1]
+        home_team = game_title[-7:]
+        return home_team
