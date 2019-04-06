@@ -4,7 +4,7 @@ import HCMBB_Stats
 import HanoverSeason
 
 
-def main():
+def scrape_data():
     seasons_dict = HCMBB_Stats.get_game_url_dict()
     seasons_list = list(seasons_dict.keys())
     print("Scraping data. This will take awhile...\n")
@@ -13,13 +13,22 @@ def main():
         season = HanoverSeason.HanoverSeason(year, seasons_dict)
         seasons_data[season.season_id] = season
     print("Thanks for waiting! Starting demo...\n")
+    get_game_info(seasons_data)
 
+
+def select_season(seasons_data):
     for season_id in seasons_data.keys():
         print(season_id)
     print("\n")
     season_input = input("Select Season: ")
+    return season_input
 
-    season_inp_data = seasons_data[season_input]
+
+def get_szn_inp_data(seasons_data, season_input):
+    return seasons_data[season_input]
+
+
+def select_game(season_inp_data):
     game_number = 1
     for game_key in season_inp_data.games_dict:
         game = season_inp_data.games_dict[game_key]
@@ -27,26 +36,44 @@ def main():
         game_number += 1
     print("\n")
     game_input = int(input("Select game number: "))
+    return game_input
 
-    opp_list = seasons_data[season_input].opponents_list
-    opp_name = opp_list[game_input-1]
+
+def get_opponent_name(season_inp_data, game_input):
+    opp_list = season_inp_data.opponents_list
+    opp_name = opp_list[game_input - 1]
     print("\n")
+    return opp_name
 
-    game_keys = seasons_data[season_input].games_dict.keys()
+
+def get_game_inp_data(season_inp_data, opp_name):
+    game_keys = season_inp_data.games_dict.keys()
     for key in game_keys:
         if key[0] == opp_name:
             game_key = key
             break
     sel_game = season_inp_data.games_dict[game_key]
+    return sel_game
 
-    print("Date:", sel_game.date, "\n")
-    print(sel_game.result + ",", "Hanover:", sel_game.hanover_score, sel_game.opponent + ":", sel_game.opponent_score,
-          "\n")
-    print("Game Location:", sel_game.location)
+
+def get_game_info(seasons_data):
+    season_input = select_season(seasons_data)
+    season_input_data = get_szn_inp_data(seasons_data, season_input)
+    game_input = select_game(season_input_data)
+    opponent_name = get_opponent_name(season_input_data, game_input)
+    game_input_data = get_game_inp_data(season_input_data, opponent_name)
+
+    print("Date:", game_input_data.date, "\n")
+    print(game_input_data.result + ",", "Hanover:", game_input_data.hanover_score, game_input_data.opponent + ":",
+          game_input_data.opponent_score, "\n")
+    print("Game Location:", game_input_data.location)
     print("\n")
-    view_game = input("Would you like to view another game (y or n)? ")
-    while view_game == "y":
-        main()
+
+    view_new_game = input("Would you like to view another game (y or n)? ")
+    if view_new_game == "y":
+        get_game_info(seasons_data)
+    else:
+        return
 
 
-main()
+scrape_data()
