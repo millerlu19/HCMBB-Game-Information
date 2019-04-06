@@ -60,32 +60,19 @@ def get_game_key(game_keys, game_input):
     return game_keys[game_input-1]
 
 
-def get_game_inp_data(season_inp_data, opp_name):
-    game_keys = season_inp_data.games_dict.keys()
-    for key in game_keys:
-        if key[0] == opp_name:
-            game_key = key
-            break
-    sel_game = season_inp_data.games_dict[game_key]
-    return sel_game
+def get_game_inp_data(season_inp_data, game_key):
+    return season_inp_data.games_dict[game_key]
 
 
 def get_game_info(seasons_data):
     seasons_dict = get_seasons_dict()
     season_input = select_season(seasons_data)
-
     game_keys = game_keys_in_szn(seasons_dict, int(season_input[-4:]))
-
     # season_input_data -> HanoverSeason
     season_input_data = get_szn_inp_data(seasons_data, season_input)
-
     game_input = select_game(season_input_data)
-
     game_key = get_game_key(game_keys, game_input)
-
-    opponent_name = get_opponent_name(season_input_data, game_input)
-
-    game_input_data = get_game_inp_data(season_input_data, opponent_name)
+    game_input_data = get_game_inp_data(season_input_data, game_key)
 
     print("Date:", game_input_data.date, "\n")
     print(game_input_data.result + ",", "Hanover:", game_input_data.hanover_score, game_input_data.opponent + ":",
