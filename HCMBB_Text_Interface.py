@@ -5,7 +5,8 @@ import HanoverSeason
 
 
 def scrape_data():
-    seasons_dict = HCMBB_Stats.get_game_url_dict()
+    seasons_dict = get_seasons_dict()
+    print(seasons_dict)
     seasons_list = list(seasons_dict.keys())
     print("Scraping data. This will take awhile...\n")
     seasons_data = {}
@@ -13,7 +14,12 @@ def scrape_data():
         season = HanoverSeason.HanoverSeason(year, seasons_dict)
         seasons_data[season.season_id] = season
     print("Thanks for waiting! Starting demo...\n")
+
     get_game_info(seasons_data)
+
+
+def get_seasons_dict():
+    return HCMBB_Stats.get_game_url_dict()
 
 
 def select_season(seasons_data):
@@ -24,11 +30,16 @@ def select_season(seasons_data):
     return season_input
 
 
+def game_keys_in_szn(seasons_dict, year):
+    return seasons_dict[year].keys()
+
+
 def get_szn_inp_data(seasons_data, season_input):
     return seasons_data[season_input]
 
 
 def select_game(season_inp_data):
+    print("\n")
     game_number = 1
     for game_key in season_inp_data.games_dict:
         game = season_inp_data.games_dict[game_key]
@@ -46,6 +57,10 @@ def get_opponent_name(season_inp_data, game_input):
     return opp_name
 
 
+def get_game_key(game_keys, game_input):
+    return game_keys[game_input]
+
+
 def get_game_inp_data(season_inp_data, opp_name):
     game_keys = season_inp_data.games_dict.keys()
     for key in game_keys:
@@ -57,9 +72,12 @@ def get_game_inp_data(season_inp_data, opp_name):
 
 
 def get_game_info(seasons_data):
+    seasons_dict = get_seasons_dict()
     season_input = select_season(seasons_data)
+    # game_keys = game_keys_in_szn(seasons_dict, season_input[-4:])
     season_input_data = get_szn_inp_data(seasons_data, season_input)
     game_input = select_game(season_input_data)
+    # game_key = get_game_key(game_keys, game_input)
     opponent_name = get_opponent_name(season_input_data, game_input)
     game_input_data = get_game_inp_data(season_input_data, opponent_name)
 

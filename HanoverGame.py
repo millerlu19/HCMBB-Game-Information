@@ -77,12 +77,12 @@ class HanoverGame:
 
     def set_home_score(self):
         home_score = self.page.find(class_='team-score home')
-        home_total = list(home_score.children)[0]
+        home_total = int(list(home_score.children)[0])
         return home_total
 
     def set_away_score(self):
         away_score = self.page.find(class_='team-score visitor')
-        away_total = list(away_score.children)[0]
+        away_total = int(list(away_score.children)[0])
         return away_total
 
     def set_date(self):
