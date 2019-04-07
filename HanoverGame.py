@@ -25,7 +25,8 @@ class HanoverGame:
         game_info = self.page.find(class_='game-info')
         game_info_2 = list(game_info.children)[1].prettify()
         location_split = re.split('Location:\n    </th>\n    <td class="text">\n     ', game_info_2)
-        location = re.split("\n", location_split[1])
+        location = re.split('Location:\n     </th>\n     <td class="text">\n      ', location_split[0])
+        location = re.split('\n', location[1])
         return location[0]
 
     def set_opponent(self):

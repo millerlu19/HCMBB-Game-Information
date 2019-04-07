@@ -14,7 +14,7 @@ def get_game_url_dict():
     Returns a list of all the urls of each Hanover games' box scores.
     Two separate Dictionaries for the 2017-2018 season and the 2018-2019 season.
     """
-    page_urls = open('PageUrl.txt', 'r')
+    page_urls = open('PageUrlLocal.txt', 'r')
 
     game_urls = {}
     season_list = gen_season_list(START_YEAR)
