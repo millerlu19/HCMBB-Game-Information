@@ -14,7 +14,7 @@ def scrape_data():
         seasons_data[season.season_id] = season
     print("Thanks for waiting! Starting demo...\n")
 
-    get_game_info(seasons_data)
+    main(seasons_data)
 
 
 def get_seasons_dict():
@@ -64,7 +64,7 @@ def get_game_inp_data(season_inp_data, game_key):
     return season_inp_data.games_dict[game_key]
 
 
-def get_game_info(seasons_data):
+def main(seasons_data):
     seasons_dict = get_seasons_dict()
     season_input = select_season(seasons_data)
     game_keys = game_keys_in_szn(seasons_dict, int(season_input[-4:]))
@@ -82,7 +82,7 @@ def get_game_info(seasons_data):
 
     view_new_game = input("Would you like to view another game (y or n)? ")
     if view_new_game == "y":
-        get_game_info(seasons_data)
+        main(seasons_data)
     else:
         return
 
