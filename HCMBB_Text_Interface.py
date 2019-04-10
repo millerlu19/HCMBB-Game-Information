@@ -3,15 +3,6 @@
 import HCMBB_Stats
 import HanoverSeason
 
-# import http.server
-# import socketserver
-#
-# PORT = 8080
-# Handler = http.server.SimpleHTTPRequestHandler
-#
-# with socketserver.TCPServer(("", PORT), Handler) as httpd:
-#     httpd.serve_forever()
-
 
 def scrape_data():
     seasons_dict = get_seasons_dict()
