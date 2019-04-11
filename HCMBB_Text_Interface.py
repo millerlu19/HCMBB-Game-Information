@@ -74,6 +74,7 @@ def main(seasons_data):
     game_key = get_game_key(game_keys, game_input)
     game_input_data = get_game_inp_data(season_input_data, game_key)
 
+    print("\n")
     print("Date:", game_input_data.date, "\n")
     print(game_input_data.result + ",", "Hanover:", game_input_data.hanover_score, game_input_data.opponent + ":",
           game_input_data.opponent_score, "\n")
